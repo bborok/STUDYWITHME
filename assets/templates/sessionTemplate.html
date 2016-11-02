@@ -1,0 +1,19 @@
+<script id="session" type="text/html">
+    <script src="jQuery_Discovery.js"></script>
+
+{{#depts}}
+<div id="{{sessionID}}" class="session">
+
+    <h>{{name}}</h>
+
+    <div class="closable" style="display: none;">
+        <ul>
+            {{#employees}}
+            <li>{{firstName}} {{lastName}}</li>
+            {{/employees}}
+        </ul>
+    </div>
+</div>
+{{/depts}}
+
+</script>

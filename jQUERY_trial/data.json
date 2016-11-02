@@ -1,0 +1,32 @@
+{
+  "depts": [
+    {
+      "sessionID" : 123,
+      "name": "Engineering",
+      "employees": [
+        {
+          "firstName": "Christophe",
+          "lastName": "Coenraets"
+        },
+        {
+          "firstName": "John",
+          "lastName": "Smith"
+        }
+      ]
+    },
+    {
+      "name": "Sales",
+      "sessionID" : 456,
+      "employees": [
+        {
+          "firstName": "Paula",
+          "lastName": "Taylor"
+        },
+        {
+          "firstName": "Lisa",
+          "lastName": "Jones"
+        }
+      ]
+    }
+  ]
+}

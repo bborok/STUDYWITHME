@@ -1,0 +1,36 @@
+<!--<div ng-controller="MessageController">
+
+
+    <ol id="conversations">
+        <lable ng-hide="messages.length">No Messages to Display</lable>
+        <li ng-repeat="message in messages">
+            {{message.owner}}
+            {{message.text}}
+            {{message.date}}
+        </li>
+    </ol>
+
+    <input type="text" id="messageBox" placeholder="Enter your Message..." ng-keypress="sendMessage($event)"
+           ng-model="message"/>
+</div>
+-->
+
+<div ng-controller="MessageController">
+
+
+    <ol id="conversations">
+        <lable ng-hide="messages.length">No Messages to Display</lable>
+        <li ng-repeat="message in messages">
+            {{message.owner}}
+            {{message.text}}
+            {{message.date}}
+        </li>
+    </ol>
+
+    <div id="chatbox"></div>
+
+    <form>
+        <input id="messageBox" placeholder="Enter your Message..." ng-keypress="sendMessage($event)" ng-model="message"/>
+    </form>
+
+</div>

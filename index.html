@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="StudyWitMe">
+<head>
+    <meta charset="UTF-8">
+
+    <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <script type="text/javascript" src="db.js"></script>
+
+    <title>StudyWitMe</title>
+</head>
+
+<body ng-controller="MainController">
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav">
+    <div class="container">
+
+        <div class="navbar-header">
+            <a class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="navbar-brand"><strong>StudyWitMe</strong></a>
+        </div>
+
+        <div id="slidemenu">
+            <ul class="nav navbar-nav">
+                <li ng-click="choice = 'SEARCH'"><a href="" style="color:black">Search</a></li>
+                <li ng-click="choice = 'NEW_SESSION'"><a href="" style="color:black">Create New Session</a></li>
+                <li ng-click="choice = 'MANAGE_SESSIONS'"><a href="" style="color:black">Manage Sessions</a></li>
+                <li ng-click="choice = 'WRITE_MESSAGE'"><a href="" style="color:black">Write Message</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<div id="page-content">
+{{choice}}
+    <div ng-show="choice == 'SEARCH'"
+         ng-include="'./assets/templates/searchSession.html'"></div>
+    <div ng-show="choice == 'NEW_SESSION'"
+         ng-include="'./assets/templates/newSession.html'"></div>
+    <div ng-show="choice == 'MANAGE_SESSIONS'"
+         ng-include="'./assets/templates/manageSession.html'"></div>
+    <div ng-show="choice == 'WRITE_MESSAGE'"
+         ng-include="'./assets/templates/chat.html'"></div>
+</div>
+
+</body>
+</html>

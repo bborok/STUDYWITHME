@@ -1,0 +1,16 @@
+<div ng-controller="CreateController">
+
+    Course Code:
+    <p><input type="text" id="newS_Class" ng-model="code"/></p>
+    Specify location:
+    <p><input type="text" id="newS_Location" ng-model="location"/></p>
+    What is the title of the meeting?
+    <p><input type="text" id="newS_Title" ng-model="title"/></p>
+    Max number of people:
+    <p><input type="text" id="newS_Limit" ng-model="limitNum"/></p>
+    Write a small description:
+    <p><input type="text" id="newS_Description" ng-model="description"/></p>
+
+    <button ng-click="createSession()">Create</button>
+
+</div>
