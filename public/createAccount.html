@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create Account</title>
+</head>
+<body>
+	<form action="">
+		Name:
+		<input type="text" placeholder="firstname lastname" id="name" required>
+		<br>
+        Profile Image: 
+        <input type="file" name="picture" accept="image/*" id="profileImage">
+        <br>
+        Major:
+        <input type="text" placeholder="computing science" id="major" required>
+        <br>
+        School Year:
+        <input type="number" min="1" max="5" value="3" id="year" required>
+        <br>
+    	Email: 
+        <input type="email" placeholder="email" id="email" required>
+		<br>
+        Password: 
+        <input type="password" id="password1" required>
+        <br>
+        Confirm Password:
+        <input type="password" id="password2" required>
+        <br>
+        
+        <button id="createAccount-btn" type="button">create account</button>
+        <button id="signIn-btn" type="button">sign in instead</button>
+    </form>
+
+    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+  	<script type="text/javascript" src="createAccount.js"></script>
+</body>
+</html>

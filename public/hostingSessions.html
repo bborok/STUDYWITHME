@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hosting Sessions</title>
+	<style>
+		table, th, td {
+    		border: 1px solid black;
+    		border-collapse: collapse;
+		}
+	</style>
+</head>
+<body>
+
+	<table>
+		<caption>Active Sessions</caption>
+		<thead>
+			<tr>
+				<th>Course</th>
+				<th>Campus</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody id="tableBody">
+			<!-- <tr>
+				<td>cmpt101</td>
+				<td>Surrey</td>
+				<td>"Assignment 1 study"</td>
+			</tr> -->
+		</tbody>
+	</table>
+
+	<button id="back_to_profile_btn" type="button">view profile</button>
+
+    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+  	<script type="text/javascript" src="hostingSessions.js"></script>
+</body>
+</html>

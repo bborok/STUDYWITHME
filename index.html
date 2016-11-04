@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+	<!-- font awesome -->
+    <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+    <!-- packery -->
+
+    <title>Sidebar Test</title>
+    <style>
+	    /* http://meyerweb.com/eric/tools/css/reset/ 
+	   		v2.0 | 20110126
+	   		License: none (public domain)
+		*/
+
+		html, body, div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		b, u, i, center,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, embed, 
+		figure, figcaption, footer, header, hgroup, 
+		menu, nav, output, ruby, section, summary,
+		time, mark, audio, video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+		/* HTML5 display-role reset for older browsers */
+		article, aside, details, figcaption, figure, 
+		footer, header, hgroup, menu, nav, section {
+			display: block;
+		}
+		body {
+			line-height: 1;
+		}
+		ol, ul {
+			list-style: none;
+		}
+		blockquote, q {
+			quotes: none;
+		}
+		blockquote:before, blockquote:after,
+		q:before, q:after {
+			content: '';
+			content: none;
+		}
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+    </style>
+    <style>
+    html {
+    	overflow: hidden;
+    }
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        background: transparent;
+        font-family: "Lato", sans-serif;
+    }
+    
+    /*div {
+        border: 1px solid red;
+    }*/
+    
+    #super-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    #nav-panel {
+        position: absolute;
+        left: 0; top: 0;
+        width: 280px;
+        height: 100%;
+        overflow-y: auto;
+        background: #111;
+        color: white;
+        -webkit-overflow-scrolling: touch;
+        /*z-index:;*/
+    }
+    
+    #main-content {
+        background: #0ff;
+        height: 100%;
+        /*overflow-y: auto;*/
+        margin-left: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1); 
+        min-width: 300px; 
+    }
+    
+    #info-bar {
+        position: absolute;
+        left: 0; right: 0; top: 0;
+        height: 50px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        padding-right: 16px;
+        background: #fff;
+        border-bottom: 1px solid #eee
+        /*width: 100%;*/
+    }
+    #info-bar a {
+    	color: #bbb;
+    	flex: 0 1 auto; /*grow shrink basis*/
+    	margin-left: 16px;
+    }
+    #info-bar a:nth-child(2) { /*spacer*/
+    	flex: 1 1 auto; /*grow shrink basis*/
+    }
+    #info-bar a:nth-child(1) {
+    	color: #111;
+    }
+
+    #content-window {
+        position: absolute;
+        left: 0; top: 0; right: 0;
+        height: calc( 100% - 50px );
+        margin-top: 50px;
+        overflow-y: auto;
+        padding: 16px;
+        background: white;
+        -webkit-overflow-scrolling: touch;
+
+        /*z-index: 1;*/
+    }
+
+    /*.toggled #main-content{
+    	margin-left: 280px;
+    }*/
+
+	
+
+    #nav-panel ul {
+    	list-style: none;
+    	color: white;
+    	display: flex;
+    	flex-flow: column nowrap;
+    	align-items: center;
+    }
+
+    #nav-panel ul li {
+    	line-height: 40px;
+    	/*text-indent: 40px;*/
+    }
+
+    #nav-panel ul li a {
+    	text-decoration: none;
+    	display: block;
+    	color: #999999;
+    	font-size: 25px;
+    }
+
+	#profile {
+		display: flex;
+		flex-flow: column nowrap;
+		/*background: #ccc;*/
+		align-items: center;
+		padding: 50px 0 40px 0;
+	}
+    #profile img {
+    	width: 130px;
+    	height: 130px;
+    	border-radius: 65px;
+    	margin-bottom: 20px;
+    	border: 5px solid white;
+    	/*margin: 0 auto;*/
+    }
+    #profile span {
+    	color: #111;
+    	font-size: 18px;
+    	letter-spacing: 2px;
+        /*line-height: 32px;*/
+        padding: 10px;
+        border-radius: 18px;
+        background: #fff;
+    }
+
+	.centering{
+		float:none;
+		margin:0 auto;
+	}
+    .card {
+		padding:0;
+		margin: 0;
+		margin-bottom: 20px;
+		min-width: 290px;
+		max-width: 100%;
+		/*max-width: 500px;*/
+    }
+    .card-block {
+    	padding:0;
+    }
+    /*.card img {
+    	width: 100%;
+    	height: 150px;
+    }*/
+    .heading {
+    	padding: 20px 16px;
+    	background: #777;
+    	color: white;
+    }
+    .heading h4 {
+    	padding-top: 20px;
+    	font-size: 30px;
+    }
+    .heading p {
+		line-height: 34px;
+    }
+    .host-section {
+    	display: flex;
+    	flex-flow: column nowrap;
+    	/*align-items: center;*/
+    	padding: 20px 16px;
+
+    }
+    .host-section * {
+    	/*background: red;*/
+    }
+    .host-section *:nth-child(3) { /*spacer*/
+    	flex: 1 1 auto; /*grow shrink basis*/
+    }
+    .host-info {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+    .host-pic {
+    	width: 60px;
+    	height: 60px;
+    	border-radius: 30px;
+    }
+    .host-name{
+    	padding-left: 14px;
+    	display: flex;
+    	flex-flow: column nowrap;
+    }
+    .host-name span:nth-child(1) {
+		font-size: 18px;
+		font-weight: bold;
+		line-height: 24px;
+    }
+    .host-name span:nth-child(2) {
+		font-size: 16px;
+		line-height: 20px;
+		color: #ccc;
+    }
+    .action-btn {
+        margin-top: 10px;
+        font-size: 20px;
+    }
+    /*.join-btn {
+    	padding-left: 12px;
+    	margin-bottom: 10px;
+    }*/
+    #menu-toggle {
+        touch-action: manipulation;
+    }
+    
+    .grid-item h4 {
+        font-size: 24px;
+        padding-top: 80px;
+    }
+
+    .grid {width:100%; /*background:yellow;*/ text-align: center;}
+    .grid-sizer, .grid-item { width: 100%; height: 200px; background: #ccc;}
+    .gutter-sizer { width: 4%; }
+    /*.grid-item div {width:100%, height: 100%;}*/
+
+    @media(min-width:685px) {
+        .grid-sizer, .grid-item { width: 48%; /*background: pink;*/}
+        .gutter-sizer { width: 4%; }
+
+        .expanded .grid-sizer, .expanded .grid-item { width: 100%; /*background: pink;*/}
+        .expanded .gutter-sizer { width: 4%; }
+
+        .card {
+            /*background: blue;*/
+            max-width: 500px;
+            
+        } 
+    }
+    @media(min-width:900px) {
+        .grid-sizer, .grid-item { width: 49%; /*background: green; */}
+        .gutter-sizer { width: 2%;  }
+
+        .expanded .grid-sizer, .expanded .grid-item { width: 49%; /*background: green; */}
+        .expanded .gutter-sizer { width: 2%;  }
+        
+        /*.expanded .grid-sizer {
+            background: cyan;
+            width: 80%; 
+        }
+        .expanded .gutter-sizer {
+            width: 5S%;
+        }*/
+
+        .card {
+            /*background: red;*/
+            max-width: 500px;
+        } 
+        #main-content {
+            margin-left: 280px;
+        }
+    }
+    @media(min-width:1136px) {
+        .grid-sizer, .grid-item { width: 32%;/* background: red;*/ }
+        .gutter-sizer { width:2%; }
+
+        .expanded .grid-sizer, .expanded .grid-item { width: 32%; /*background: red; */}
+        .expanded .gutter-sizer { width:2%; }
+    }
+    @media(min-width:1200px){
+
+    }   
+
+    </style>
+</head>
+
+<body>
+    <div id="super-container">
+        <div id="main-content">
+            <div id="info-bar">
+                <!--  <i class="fa fa-bars fa-2x" id="menu-toggle"></i> -->
+                <a href="#" id="menu-toggle">
+                    <i class="fa fa-bars fa-2x" ></i>
+                </a>
+                <a href="#">&nbsp;</a> <!-- spacer -->
+                <a href="#">
+                    <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+                </a>
+				<!-- <a href="#" id="">
+					<i class="fa fa-bell fa-lg" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                	<span>Sign out</span>
+                </a> -->
+                
+            </div>
+            <div id="content-window">
+
+                <div class="grid">
+                    <div class="grid-sizer"></div>
+                    <div class="gutter-sizer"></div>
+                    <div class="grid-item">
+                        <h4>CMPT 128</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>MACM 201</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>PSYC 109</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>IAT 100</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>HYST 223</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>CMNS 130</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>BUS 228</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>ARCH 101</h4>
+                    </div>
+                </div>
+            	<!-- card 1 -->
+                <!-- <div class="card col-lg-6 centering">
+				    <div class="card-block heading">
+				    	<h4>CMPT 106</h4>
+				    	<p>3:00 pm — 4:30 pm • Burnaby</p>
+				    </div>
+				    <div class="card-block">
+			    		<div class="host-section">
+                            <div class="host-info">
+                                <img class="host-pic" src="http://lorempixel.com/100/100/people" alt="">
+                                <div class="host-name">
+                                    <span>Loressa Marty</span>
+                                    <span>Software systems</span>
+                                </div>
+                            </div>
+					    	<a href="#" class="btn btn-primary action-btn">Join Session</a>
+			    		</div>
+				    </div>
+				</div> -->
+				<!-- card 2 -->
+				<!-- <div class="card col-lg-6 centering">
+                    <div class="card-block heading">
+                        <h4>CMPT 106</h4>
+                        <p>3:00 pm — 4:30 pm • Burnaby</p>
+                    </div>
+                    <div class="card-block">
+                        <div class="host-section">
+                            <div class="host-info">
+                                <img class="host-pic" src="http://lorempixel.com/100/100/people" alt="">
+                                <div class="host-name">
+                                    <span>Loressa Marty</span>
+                                    <span>Software systems</span>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary action-btn">Join Session</a>
+                        </div>
+                    </div>
+                </div> -->
+				<!-- card 3 -->
+				<!-- <div class="card col-lg-6 centering">
+                    <div class="card-block heading">
+                        <h4>CMPT 106</h4>
+                        <p>3:00 pm — 4:30 pm • Burnaby</p>
+                    </div>
+                    <div class="card-block">
+                        <div class="host-section">
+                            <div class="host-info">
+                                <img class="host-pic" src="http://lorempixel.com/100/100/people" alt="">
+                                <div class="host-name">
+                                    <span>Loressa Marty</span>
+                                    <span>Software systems</span>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary action-btn">Join Session</a>
+                        </div>
+                    </div>
+                </div> -->
+				<!-- card 4 -->
+				<!-- <div class="card col-lg-6 centering">
+				    <div class="card-block heading">
+				    	<h4>MSE 110</h4>
+				    	<p>3:00 pm ➡ 4:30 pm • Burnaby</p>
+				    </div>
+				    <div class="card-block">
+			    		<div class="host-section">
+				    		<img src="http://lorempixel.com/100/100/people" alt="">
+					    	<div>
+					    		<span>Ada Lovelace</span>
+					    		<span>Mathematics</span>
+					    	</div>
+					    	<span>&nbsp;</span>
+					    	<a href="#" class="btn btn-primary">Join Session</a>
+			    		</div>
+				    </div>
+				</div> -->
+                <!-- cards end -->
+            </div>
+        </div>
+        <div id="nav-panel">
+        	<div id="profile">
+        		<img src="snipes.jpg" alt="">
+        		<span>Snipes</span>
+        	</div>
+            <ul>
+            	<li><a href="">Discovery</a></li>
+            	<li><a href="">Sessions</a></li>
+            	<li><a href="">Messages</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/packery@2.1/dist/packery.pkgd.min.js"></script>
+
+  
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#main-content").toggleClass("expanded")
+        let marginLeft = document.getElementById("main-content").style.marginLeft
+        console.log(parseInt(marginLeft, 10))
+        let val = parseInt(marginLeft, 10)
+        if ( isNaN(val) || val == 0) {
+        	document.getElementById("main-content").style.marginLeft = "280px";
+        } else {
+        	document.getElementById("main-content").style.marginLeft = "0px";
+        }
+    });
+
+    $('.grid').packery({
+        columnWidth: '.grid-sizer',
+        rowHeight: '.grid-sizer',
+        gutter: '.gutter-sizer',
+        itemSelector: '.grid-item',
+        percentPosition: true
+        // gutter: 2%
+    });
+    </script>
+</body>
+
+</html>

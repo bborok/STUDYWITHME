@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="jquery.timepicker.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css">
+	<title>Create Session</title>
+</head>
+<body>
+	<form action="">
+        Course:
+        <input type="text" required id="course">
+        <br>
+        Campus:
+        <select name="" id="campus">
+            <option value="burnaby">Burnaby</option>
+            <option value="surrey">Surrey</option>
+            <option value="vancouver">Vancouver</option>
+        </select>
+        <br>
+        Start Date:
+        <input type="text" id="start_date" placeholder="YYYY-MM-DD">
+        Time:
+        <input type="text" id="start_time" placeholder="HH:MM">
+        <br>
+        Duration:
+        <input type="number" id="duration" min="0.5" max="3.0" step="0.5" value="1.0">
+        <br>
+        Description:
+        <textarea name="" cols="80" rows="2" id="description" maxlength="100" placeholder="What would you be doing?"></textarea>
+        <br>
+        Exact Location:
+        <input type="text" placeholder="like which room in the library?" id="exact_location">
+        <br>
+        Max Guests:
+        <input type="number" min="1" max="5" value="3" id="max_guests">
+        <br>
+		
+        <button id="create_session_btn" type="button">create session</button>
+        <button id="view_profile_btn" type="button">back to profile</button>
+    </form>
+
+    <script src="jquery-3.1.1.min.js"></script>
+    <!-- <script src="jquery.timepicker.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+  	<script type="text/javascript" src="createSession.js"></script>
+</body>
+</html>
