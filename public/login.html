@@ -4,6 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Studywitme - Login</title>
+    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCCcJUaBLram1g9zoqTUVkK9K-iHyv4V-A",
+        authDomain: "studywitme-f268e.firebaseapp.com",
+        databaseURL: "https://studywitme-f268e.firebaseio.com",
+        storageBucket: "studywitme-f268e.appspot.com",
+        messagingSenderId: "1009156773779"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/ui/live/1.0/firebase-ui-auth.js"></script>
+    <!-- <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/1.0/firebase-ui-auth.css" /> -->
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        'signInSuccessUrl': '<url-to-redirect-to-on-success>',
+        'signInOptions': [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        'tosUrl': '<your-tos-url>',
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
     <link rel = "stylesheet" href = "indexStyle.css">
     <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
     <script type="text/javascript" src="app.js"></script>
@@ -110,9 +142,10 @@
         <div class="login-page">
           <div class="form">
           <form class="login-form">
-            <input type="email" placeholder="email" id="email">
-            <input type="password" placeholder ="password" id="password">
+            <input type="email" placeholder="E-mail Address" id="email">
+            <input type="password" placeholder ="Password" id="password">
             <button id="signin-btn" type="button">Sign In</button>
+            <div id="firebaseui-auth-container"></div>
             <p class="message" id ="createAcct-btn">Not registered? <a href="createAccount.html">Create an account</a></p>
           </form>
         </div>
