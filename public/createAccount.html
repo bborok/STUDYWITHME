@@ -46,9 +46,10 @@
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><a class = "logout" href = "login.html">Login</a>
-                      <button id="signout-btn" type="button">Sign Out</button>
+                      <li><button class = "logout" id="signout-btn" type="button">Sign Out</button>
                       <!-- <a class="logout" href="xlogin.html">Logout</a> -->
                     </li>
+                  </li>
             	</ul>
             </div>
         </header>
@@ -63,8 +64,8 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
 
-              	  <p class="centered"><a href="profile.html"><img src="" alt="" id="image" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered"><div class = "name"></div></h5>
+              	  <!-- <p class="centered"><a href="profile.html"><img src="" alt="" id="image" class="img-circle" width="60"></a></p> -->
+              	  <h5 class="centered"></h5>
 
                   <li class="mt">
                       <a class="active" href="main.html">
@@ -126,36 +127,27 @@
               <!-- sidebar menu end-->
           </div>
       </aside>
+      <div class="login-page">
+        <div class="form">
+        <form class="register-form">
+          <input type="text" placeholder="FirstName LastName" id="name" required>
+          <input type="email" placeholder="E-mail Address" id="email" required>
+          <input type="password" id="password1" placeholder ="Password" required>
+          <input type="password" id="password2" placeholder = "Confirm Your Password" required>
+          <input type="text" placeholder="Major" id="major" required>
+          <input type="number" min="1" max="5" placeholder = "School Year" id="year" required>
+          <input type="file" name="picture" placeholder ="Profile Picture" accept="image/*" id="profileImage">
+          <button id="createAccount-btn" type="button">Signup</button>
+          <p class="message">Already registered? <a href="login.html">Sign In</a></p>
+        </form>
+      </div>
+    </div>
       <section id="main-content">
           <section class="wrapper">
             <div class="row">
                 <div class="col-lg-9 main-chart">
-									<form action="">
-	Name:
-	<input type="text" placeholder="firstname lastname" id="name" required>
-	<br>
-			Profile Image:
-			<input type="file" name="picture" accept="image/*" id="profileImage">
-			<br>
-			Major:
-			<input type="text" placeholder="computing science" id="major" required>
-			<br>
-			School Year:
-			<input type="number" min="1" max="5" value="3" id="year" required>
-			<br>
-		Email:
-			<input type="email" placeholder="email" id="email" required>
-	<br>
-			Password:
-			<input type="password" id="password1" required>
-			<br>
-			Confirm Password:
-			<input type="password" id="password2" required>
-			<br>
-
-			<button id="createAccount-btn" type="button">create account</button>
-			<button id="signIn-btn" type="button">sign in instead</button>
-	</form>
+                </div>
+              </div>
 
 	<script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
 	<script type="text/javascript" src="createAccount.js"></script>
@@ -163,9 +155,6 @@
   </section>
 </section>
 </section>
-  </div>
-</div>
-
 </body>
 
 </html>
