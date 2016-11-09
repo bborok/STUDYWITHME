@@ -3,13 +3,13 @@
 // console.log(value)
 
 // Initialize Firebase
-var config = { 
-	apiKey: "AIzaSyDOTyoj9m1nnT9bkG30WXMPuzFjT39Yb9I", 
-	authDomain: "test-e758d.firebaseapp.com", 
-	databaseURL: "https://test-e758d.firebaseio.com", 
-	storageBucket: "test-e758d.appspot.com", 
-	messagingSenderId: "918779841724" 
-}; 
+var config = {
+	apiKey: "AIzaSyCCcJUaBLram1g9zoqTUVkK9K-iHyv4V-A",
+	authDomain: "studywitme-f268e.firebaseapp.com",
+	databaseURL: "https://studywitme-f268e.firebaseio.com",
+	storageBucket: "studywitme-f268e.appspot.com",
+	messagingSenderId: "1009156773779"
+};
 firebase.initializeApp(config);
 
 function initApp() {
@@ -63,7 +63,7 @@ function fetchSessionInfo(sessionID) {
 
 function setupActionButton(sessionObj) {
 
-	/* 
+	/*
 	Depending on who the user is, show different buttons.
 	i.e, 	if user == host, show an edit-session button,
 			if user == alread-joined, show 'cancel-session' button,
@@ -73,12 +73,12 @@ function setupActionButton(sessionObj) {
 	// get all users that have joined this session
 	let joinedSessionsRef = firebase.database().ref().child('sessions').child(sessionObj.key).child('guests')
 	joinedSessionsRef.on('value', function(snapshot) {
-		
+
 		//display # of people currently joined
 		document.getElementById('current_guests').textContent = "("+snapshot.numChildren()+" Joined)"
-		
+
 		// if the user is the session host, show 'edit-session' button, exit.
-		let user = firebase.auth().currentUser 
+		let user = firebase.auth().currentUser
 		if (user.uid == sessionObj.host_id) {
 			// console.log("INFO: you're the host")
 			let btnContainer = document.getElementById('action_btn')
@@ -107,7 +107,7 @@ function setupActionButton(sessionObj) {
 				return
 			}
 		}
-		
+
 		// if the user has joined this session already
 		if ( joiners != null && user.uid in joiners ) {
 			// console.log("INFO: joined")

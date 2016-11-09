@@ -1,11 +1,11 @@
 // Initialize Firebase
-var config = { 
-	apiKey: "AIzaSyDOTyoj9m1nnT9bkG30WXMPuzFjT39Yb9I", 
-	authDomain: "test-e758d.firebaseapp.com", 
-	databaseURL: "https://test-e758d.firebaseio.com", 
-	storageBucket: "test-e758d.appspot.com", 
-	messagingSenderId: "918779841724" 
-}; 
+var config = {
+	apiKey: "AIzaSyCCcJUaBLram1g9zoqTUVkK9K-iHyv4V-A",
+	authDomain: "studywitme-f268e.firebaseapp.com",
+	databaseURL: "https://studywitme-f268e.firebaseio.com",
+	storageBucket: "studywitme-f268e.appspot.com",
+	messagingSenderId: "1009156773779"
+};
 firebase.initializeApp(config);
 
 function initApp() {
@@ -31,16 +31,16 @@ function saveUserData(uid, name, fileArray, major, year, email) {
 		var file = fileArray[0]
 		var storageRef = firebase.storage().ref();
 		var saveName = uid + "." + file.name.split('.').pop()
-		
+
 		var uploadTask = storageRef.child('images/' + saveName).put(file);
 
 		uploadTask.then(function(snapshot){
-			saveUserOtherData(uid, name, snapshot.downloadURL, major, year, email) 
+			saveUserOtherData(uid, name, snapshot.downloadURL, major, year, email)
 		}, function(error){
 			console.log(error)
 		})
 	} else {
-		saveUserOtherData(uid, name, "", major, year, email) 
+		saveUserOtherData(uid, name, "", major, year, email)
 	}
 }
 
@@ -74,7 +74,7 @@ function createUserAccount() {
 	let password2 = document.getElementById('password2').value
 
 	console.log(fileArray)
-	
+
 	if (isEmpty(name)) {
 		alert("Please enter a valid name")
 		return
@@ -117,7 +117,7 @@ function isMatchingPasswords(password1, password2) {
 }
 
 function backToSignin() {
-	window.location = "index.html" 
+	window.location = "login.html"
 }
 
 window.addEventListener('load', function() {

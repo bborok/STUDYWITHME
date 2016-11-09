@@ -1,11 +1,11 @@
 // Initialize Firebase
-var config = { 
-	apiKey: "AIzaSyDOTyoj9m1nnT9bkG30WXMPuzFjT39Yb9I", 
-	authDomain: "test-e758d.firebaseapp.com", 
-	databaseURL: "https://test-e758d.firebaseio.com", 
-	storageBucket: "test-e758d.appspot.com", 
-	messagingSenderId: "918779841724" 
-}; 
+var config = {
+	apiKey: "AIzaSyCCcJUaBLram1g9zoqTUVkK9K-iHyv4V-A",
+	authDomain: "studywitme-f268e.firebaseapp.com",
+	databaseURL: "https://studywitme-f268e.firebaseio.com",
+	storageBucket: "studywitme-f268e.appspot.com",
+	messagingSenderId: "1009156773779"
+};
 firebase.initializeApp(config);
 
 function initApp() {
@@ -25,7 +25,7 @@ function initApp() {
 }
 
 function setupViews() {
-	//todo: initialize fields to default values	
+	//todo: initialize fields to default values
 }
 
 function createSession() {
@@ -80,7 +80,7 @@ function createSession() {
 	var fanoutObject = {}
 	fanoutObject['/users/'+user.uid+'/hosting_sessions/'+newSessionKey] = true;
 	fanoutObject['/sessions/'+newSessionKey+'/metadata'] = sessionObj;
-	
+
 	// console.log(fanoutObject)
 
  	let updatePromise = firebase.database().ref().update(fanoutObject)
@@ -94,7 +94,7 @@ function createSession() {
 }
 
 function gotoProfilePage() {
-	window.location = "main.html" 
+	window.location = "main.html"
 }
 
 window.addEventListener('load', function() {

@@ -3,8 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
-    <link rel = "stylesheet" href = "mainStyle.css">
+    <title>Studywitme - Login</title>
+    <link rel = "stylesheet" href = "loginStyle.css">
+    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+    <script type="text/javascript" src="app.js"></script>
 </head>
 
 <body>
@@ -24,7 +26,7 @@
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><a class = "logout" href = "login.html">Login</a>
-                      <button id="signout_btn" type="button">Sign Out</button>
+                      <li><button id="sign-out" onclick = "refresh()">Sign Out</button>
                       <!-- <a class="logout" href="xlogin.html">Logout</a> -->
                     </li>
             	</ul>
@@ -42,7 +44,7 @@
               <ul class="sidebar-menu" id="nav-accordion">
 
               	  <p class="centered"><a href="profile.html"><img src="" alt="" id="image" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered"><span id="name"></span></h5>
+              	  <h5 class="centered"><div class = "name"></div></h5>
 
                   <li class="mt">
                       <a class="active" href="main.html">
@@ -108,17 +110,27 @@
           <section class="wrapper">
             <div class="row">
                 <div class="col-lg-9 main-chart">
+                  <form action="">
+    	Email:
+        <input type="email" placeholder="email" id="email">
+		<br>
+        Password:
+        <input type="password" id="password">
+        <br>
+        <button id="signin-btn" type="button">Sign In</button>
+        <button id="createAcct-btn" type="button">Register</button>
+    </form>
+    <button id="signout-btn">Sign Out</button>
+    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+    <script type="text/javascript" src="app.js"></script>
 
-                  <p>major: <span id="major"></span></p>
-                  <p>year: <span id="year"></span></p>
-                  <p>email: <span id="email"></span></p>
-                  <p>status: <span id="status"></span></p>
+
   </section>
+</section>
 </section>
   </div>
 </div>
-<script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
-<script type="text/javascript" src="main.js"></script>
+
 </body>
 
 </html>
