@@ -15,7 +15,7 @@ function MainController($scope, $firebase) {
 }
 
 function MessageController($scope, $firebase) {
-    $scope.db = $firebase(new Firebase(ADDRESS + "conversations"));
+    $scope.db = $firebase(new Firebase(ADDRESS + "/conversations" + id));
     $scope.messages = [];
 
     $scope.db.$on('value', function () {
@@ -30,13 +30,8 @@ function MessageController($scope, $firebase) {
             });
         }
     });
+
     $scope.sendMessage = function (event) {
-
-        var id = "-KWQqyPRSamgouFwsQNz";
-        $scope.child(id).set(
-            {"sessionID" : "Hello"}
-        );
-
         if (event.which == 13 || event.keyCode == 13) {
             var text = $scope.message.trim();
             if (text.length > 0) {
@@ -95,13 +90,11 @@ function CreateController($scope, $firebase) {
         }
     }
 }
-
 function Cntrl($scope, $location) {
     $scope.changeView = function (view) {
         $location.path(view);
     }
 }
-
 function ManageController($scope, $firebase) {
 
 }
@@ -162,9 +155,6 @@ function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-
-
-
 //Toggling Navigation Bar
 $(document).ready(function () {
     //stick in the fixed 100% height behind the navbar but don't wrap it
@@ -220,21 +210,3 @@ $(document).ready(function () {
 
     });
 });
-
-/*
-* Write to Firebase with a unique, known key:
- ref.child('users').child('123').set({ "first_name": "rob", "age": 28 })
- Append to lists with an auto-generated key that will automatically sort by time written:
- ref.child('users').push({ "first_name": "rob", "age": 28 })
- Listen for changes in data by its unique, known path:
- ref.child('users').child('123').on('value', function(snapshot) { ... })
- Filter or order data in a list by key or attribute value:
- // Get the last 10 users, ordered by key
- ref.child('users').orderByKey().limitToLast(10).on('child_added', ...)
-
- // Get all users whose age is >= 25
- ref.child('users').orderByChild('age').startAt(25).on('child_added', ...)
- With the addition of orderByChild(), you no longer need to create your own index for queries on child attributes! For example, to retrieve all users with the name "Alex":
-
- ref.child('users').orderByChild('name').equalTo('Alex').on('child_added',  ...)
-* */
