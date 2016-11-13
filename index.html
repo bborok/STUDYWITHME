@@ -42,12 +42,7 @@
     </div>
 </div>
 
-
-
-
-
 <div id="page-content">
-{{choice}}
     <div ng-show="choice == 'SEARCH'"
          ng-include="'./assets/templates/searchSession.html'"></div>
     <div ng-show="choice == 'NEW_SESSION'"
@@ -55,6 +50,8 @@
     <div ng-show="choice == 'MANAGE_SESSIONS'"
          ng-include="'./assets/templates/manageSession.html'"></div>
     <div ng-show="choice == 'WRITE_MESSAGE'"
+         ng-include="'./assets/templates/conversations.html'"></div>
+    <div ng-show="choice == 'CHAT'"
          ng-include="'./assets/templates/chat.html'"></div>
 </div>
 

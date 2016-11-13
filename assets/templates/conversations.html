@@ -1,0 +1,12 @@
+<div ng-controller="ConversationController">
+
+    <ol id="conversations">
+        <lable ng-hide="sessions.length">Currently, you are not a member of any Session</lable>
+        <li ng-repeat="session in sessions">
+            <a ng-click="openChat(session.key)">
+                {{session.courseCode}}
+                <strong style="color: red">{{session.unreadMessages}}</strong>
+            </a>
+        </li>
+    </ol>
+</div>
