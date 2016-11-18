@@ -3,7 +3,59 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Studywitus</title>
+    <title>Studywitme - Login</title>
+    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCCcJUaBLram1g9zoqTUVkK9K-iHyv4V-A",
+        authDomain: "studywitme-f268e.firebaseapp.com",
+        databaseURL: "https://studywitme-f268e.firebaseio.com",
+        storageBucket: "studywitme-f268e.appspot.com",
+        messagingSenderId: "1009156773779"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/ui/live/1.0/firebase-ui-auth.js"></script>
+    <!-- <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/1.0/firebase-ui-auth.css" /> -->
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        'signInSuccessUrl': '<url-to-redirect-to-on-success>',
+        'signInOptions': [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        'tosUrl': '<your-tos-url>',
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '297633700636012',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+    <script type="text/javascript" src="app.js"></script>
     <link rel = "stylesheet" href = "indexStyle.css">
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
@@ -50,13 +102,13 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>Studywitus</b></a>
+            <a href="index.html" class="logo"><b>Studywitme</b></a>
             <!--logo end-->
 
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><a class = "logout" href = "login.html">Login</a>
-                      <li><button class = "logout" id="signout_btn" type="button">Sign Out</button></li>
+                      <li><button id="sign-out" class = "logout" onclick = "refresh()">Sign Out</button></li>
                       <!-- <a class="logout" href="xlogin.html">Logout</a> -->
                     </li>
             	</ul>
@@ -73,8 +125,8 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
 
-              	  <p class="centered"><a href="profile.html"><img src="" alt="" id="image" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered"><span id="name"></span></h5>
+              	  <!-- <p class="centered"><a href="profile.html"><img src="" alt="" id="image" class="img-circle" width="60"></a></p> -->
+              	  <h5 class="centered"></h5>
 
                   <li class="mt">
                       <a class="active" href="main.html">
@@ -136,16 +188,34 @@
               <!-- sidebar menu end-->
           </div>
       </aside>
+
+        <div class="login-page">
+          <div class="form">
+          <form class="login-form">
+            <input type="email" placeholder="E-mail Address" id="email">
+            <input type="password" placeholder ="Password" id="password">
+            <button id="signin-btn" type="button">Sign In</button>
+            <div id="firebaseui-auth-container"></div>
+            <p class="message" id ="createAcct-btn">Not registered? <a href="createAccount.html">Create an account</a></p>
+          </form>
+        </div>
+      </div>
       <section id="main-content">
           <section class="wrapper">
             <div class="row">
-                <div class="col-lg-9 main-chart">
+              <div class="col-lg-9 main-chart">
+                <div class="col-lg-12 ds">
                 </div>
               </div>
-  </section>
-</section>
+</div>
     <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
     <script type="text/javascript" src="app.js"></script>
+
+
+  </section>
+</section>
+</section>
+
 
 </body>
 

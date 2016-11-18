@@ -1,0 +1,14 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /Users/uzziah/.nvm/versions/node/v7.0.0/bin/node /Users/uzziah/.nvm/versions/node/v7.0.0/bin/firebase serve
+[debug] CLI Version:  3.1.0
+[debug] Platform:     darwin
+[debug] Node Version: v7.0.0
+[debug] Time:         Fri Nov 18 2016 14:39:35 GMT-0800 (PST)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: /Users/uzziah/Desktop/test/StudyWithMe
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
