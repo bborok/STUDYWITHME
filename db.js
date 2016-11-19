@@ -11,11 +11,12 @@ const USER_ID = "Somebody";
 var movieFire = angular.module("StudyWitMe", ["firebase"]);
 
 function MainController($scope, $firebase) {
-    $scope.choice = SEARCH;
+
 }
 
+//TODO: make Multi Chat
 function MessageController($scope, $firebase) {
-    $scope.db = $firebase(new Firebase(ADDRESS + "/conversations" + id));
+    $scope.db = $firebase(new Firebase(ADDRESS + "/conversations/" + id));
     $scope.messages = [];
 
     $scope.db.$on('value', function () {
@@ -46,7 +47,6 @@ function MessageController($scope, $firebase) {
         }
     }
 }
-
 function CreateController($scope, $firebase) {
     $scope.db = $firebase(new Firebase(ADDRESS + "/sessions"));
     $scope.dbConvers = $firebase(new Firebase(ADDRESS + "/conversations"));
@@ -90,17 +90,6 @@ function CreateController($scope, $firebase) {
         }
     }
 }
-function Cntrl($scope, $location) {
-    $scope.changeView = function (view) {
-        $location.path(view);
-    }
-}
-function ManageController($scope, $firebase) {
-
-}
-function SearchController($scope, $firebase) {
-
-}
 function ConversationController($scope, $firebase) {
     $scope.db = $firebase(new Firebase(ADDRESS + "/sessions"));
     $scope.dbConvers = $firebase(new Firebase(ADDRESS + "/conversations"));
@@ -138,9 +127,19 @@ function ConversationController($scope, $firebase) {
         var conversationId = getSessionById(id).conversationId;
 
         alert(conversationId);
+
+
     }
 }
 
+function Cntrl($scope, $location) {
+    $scope.changeView = function (view) {
+        $location.path(view);
+    }
+}
+
+
+//Help Functiones
 function getSessionById(id) {
     var result;
     new Firebase(ADDRESS + '/sessions/' + id).once('value', function(snap) {
@@ -148,11 +147,19 @@ function getSessionById(id) {
     });
     return result;
 }
-function JoinSession($scope, $firebase) {
-    //Join Session
-}
 function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+//TODO
+function ManageController($scope, $firebase) {
+
+}
+function SearchController($scope, $firebase) {
+
+}
+function JoinSession($scope, $firebase) {
+    //Join Session
 }
 
 //Toggling Navigation Bar
