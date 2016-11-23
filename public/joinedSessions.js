@@ -17,15 +17,45 @@ function initApp() {
 			setupView()
 		} else {
 			console.log("signed out")
+			window.location= 'login.html'
 		}
 	})
 
 	document.getElementById('back_to_profile_btn').addEventListener('click', gotoProfile, false);
+	document.getElementById('signout_btn').addEventListener('click', signOutUser, false);
+	document.getElementById('discover_sessions_btn').addEventListener('click', gotoDiscoverSessionsPage, false);
+	document.getElementById('create_session_btn').addEventListener('click', gotoCreateSessionPage, false);
+	document.getElementById('pending_sessions_btn').addEventListener('click', gotoPendingSessionsPage, false);
+	document.getElementById('joined_sessions_btn').addEventListener('click', gotoJoinedSessionsPage, false);
+	document.getElementById('hosting_sessions_btn').addEventListener('click', gotoHostingSessionsPage, false);
 }
 
 function setupView() {
 	let user = firebase.auth().currentUser
 	var joinedSessionsRef = firebase.database().ref('users/'+user.uid+'/joined_sessions');
+
+	if (user != null) {
+		var userRef = firebase.database().ref('users/' + user.uid + '/metadata');
+
+		userRef.on('value', function(snapshot) {
+			// console.log(snapshot.val())
+			let dict = snapshot.val()
+
+			let imageView = document.getElementById('image')
+			let nameView = document.getElementById('name')
+			let majorView = document.getElementById('major')
+			let yearView = document.getElementById('year')
+			let emailView = document.getElementById('email')
+			let statusView = document.getElementById('status')
+
+			imageView.src = (dict["profile_image_url"] == "") ? "DEFAULT_PROFILE_IMAGE.png" : dict["profile_image_url"]
+			nameView.textContent = dict["name"]
+			majorView.textContent = dict["major"]
+			yearView.textContent = dict["school_year"]
+			emailView.innerHTML = dict["email"]
+			statusView.innerHTML = user.isAnonymous ? "Anonymous" : "Regular"
+		});
+	}
 
 	joinedSessionsRef.on('child_added', function(data) {
 		// console.log(data.val())
@@ -41,6 +71,36 @@ function setupView() {
 	joinedSessionsRef.on('child_removed', function(data) {
 		removeSession(data.key)
 	})
+}
+
+function signOutUser() {
+    console.log("[event] Did click on sign out btn")
+    firebase.auth().signOut().then(function() {
+	  	console.log('Signed Out');
+	}, function(error) {
+	  	console.error('Sign Out Error', error);
+	});
+}
+
+function gotoDiscoverSessionsPage() {
+	window.location = "viewSessions.html"
+}
+
+function gotoCreateSessionPage() {
+	window.location = "createSession.html"
+}
+
+function gotoPendingSessionsPage() {
+	alert("comming soon...")
+	// window.location = "hostingSessions.html"
+}
+
+function gotoJoinedSessionsPage() {
+	window.location = "joinedSessions.html"
+}
+
+function gotoHostingSessionsPage() {
+	window.location = "hostingSessions.html"
 }
 
 function displaySession(sessionObj, sessionKey)
