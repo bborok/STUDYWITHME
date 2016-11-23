@@ -1,47 +1,72 @@
 const ADDRESS = 'https://cmpt106.firebaseio.com/';
-const NEW_SESSION = "NEW_SESSION";
-const SEARCH = "SEARCH";
-const MANAGE_SESSIONS = "MANAGE_SESSIONS";
-const WRITE_MESSAGE = "WRITE_MESSAGE";
-const CHAT = "CHAT";
 
 //TODO: Distinguish users
 const USER_ID = "Somebody";
 
-var movieFire = angular.module("StudyWitMe", ["firebase"]);
+var studyWitMe = angular.module("StudyWitMe", ['firebase']);//, 'ngRoute']);
 
-function MainController($scope, $firebase) {
+// studyWitMe.config(['$routeProvider', function($routeProvider) {
+//     $routeProvider.
+//
+//     when('/searchSession', {
+//         templateUrl: 'assets/templates/searchSession.html',
+//         controller: 'SearchController'
+//     }).
+//     when('/newSession', {
+//         templateUrl: 'assets/templates/newSession.html',
+//         controller: 'CreateController'
+//     }).
+//     when('/manageSession', {
+//         templateUrl: 'assets/templates/manageSession.html',
+//         controller: 'ManageController'
+//     }).
+//     when('/conversations', {
+//         templateUrl: 'assets/templates/conversations.html',
+//         controller: 'ConversationController'
+//     }).
+//
+//     otherwise({
+//         redirectTo: '/searchSession'
+//     });
+// }]);
 
+studyWitMe.controller('MainController', function ($scope, $firebase) {
+
+});
+
+studyWitMe.factory("shareConversation", shareConversation);
+
+function shareConversation() {
+    return { conversationId : ""}
 }
 
-//TODO: make Multi Chat
-function MessageController($scope, $firebase) {
-    $scope.db = $firebase(new Firebase(ADDRESS + "/conversations/" + id));
-    $scope.messages = [];
 
-    $scope.db.$on('value', function () {
-        $scope.messages = [];
-        var msg = $scope.db.$getIndex();
-        for (var i = 0; i < msg.length; i++) {
-            $scope.messages.push({
-                key: msg[i],
-                owner: $scope.db[msg[i]].owner,
-                text: $scope.db[msg[i]].text,
-                date: $scope.db[msg[i]].date
-            });
-        }
+
+//TODO: make Multi Chat
+MessageController.$inject = ['$scope','shareConversation'];
+function MessageController($scope, $firebase, shareConversation) {
+
+    var conversationId = shareConversation.conversationId;
+
+    alert("Hello");
+    alert(conversationId);
+
+    $scope.dbMessages = $firebase(new Firebase(ADDRESS + "conversations/" + conversationId + "/messages"));
+
+    $scope.dbMessages.$on('value', function () {
+        $scope.messages = getMessagesByConversId(conversationId);
     });
 
     $scope.sendMessage = function (event) {
         if (event.which == 13 || event.keyCode == 13) {
-            var text = $scope.message.trim();
-            if (text.length > 0) {
-                $scope.db.$add({
+            var textEntered = $scope.message.trim();
+            if (textEntered.length > 0) {
+                $scope.dbMessages.$add({
                     owner: USER_ID,
-                    text: text,
+                    text: textEntered,
                     date: new Date()
                 });
-                messageBox.value = '';
+                $scope.messageBox.value = '';
                 $scope.message.clean;
             }
         }
@@ -90,26 +115,30 @@ function CreateController($scope, $firebase) {
         }
     }
 }
-function ConversationController($scope, $firebase) {
-    $scope.db = $firebase(new Firebase(ADDRESS + "/sessions"));
-    $scope.dbConvers = $firebase(new Firebase(ADDRESS + "/conversations"));
+
+ConversationController.$inject = ["$scope", "$firebase", "$location", "shareConversation"]
+function ConversationController($scope, $firebase, $location, shareConversation) {
+    $scope.dbSession = $firebase(new Firebase(ADDRESS + "sessions"));
+    $scope.dbConvers = $firebase(new Firebase(ADDRESS + "conversations"));
 
     $scope.sessions = [];
     $scope.conversations = [];
+    $scope.messages = [];
+    $scope.displayChat = false;
 
     //Init Session and Conversation
-    $scope.db.$on('value', function () {
-        var meeting = $scope.db.$getIndex();
+    $scope.dbSession.$on('value', function () {
+        var meeting = $scope.dbSession.$getIndex();
         for (var i = 0; i < meeting.length; i++) {
             $scope.sessions.push({
                 key: meeting[i],
-                owner: $scope.db[meeting[i].owner],
-                members: $scope.db[meeting[i].members],
-                courseCode: $scope.db[meeting[i]].courseCode,
-                location: $scope.db[meeting[i]].location,
-                title: $scope.db[meeting[i]].title,
-                limit: $scope.db[meeting[i]].limitNum,
-                description: $scope.db[meeting[i]].description
+                owner: $scope.dbSession[meeting[i].owner],
+                members: $scope.dbSession[meeting[i].members],
+                courseCode: $scope.dbSession[meeting[i]].courseCode,
+                location: $scope.dbSession[meeting[i]].location,
+                title: $scope.dbSession[meeting[i]].title,
+                limit: $scope.dbSession[meeting[i]].limitNum,
+                description: $scope.dbSession[meeting[i]].description
             });
         }
 
@@ -118,18 +147,17 @@ function ConversationController($scope, $firebase) {
             $scope.conversations.push({
                 key: convers[i],
                 sessionId: $scope.dbConvers[convers[i].sessionId],
-                messages: $scope.dbConvers[convers[i].messages]
             });
         }
     });
 
     $scope.openChat = function (id) {
-        var conversationId = getSessionById(id).conversationId;
+        shareConversation = {
+            conversationId : getSessionById(id).conversationId
+        };
 
-        alert(conversationId);
-
-
-    }
+        $location.path('assets/templates/chat.html');
+    };
 }
 
 function Cntrl($scope, $location) {
@@ -138,14 +166,20 @@ function Cntrl($scope, $location) {
     }
 }
 
-
 //Help Functiones
 function getSessionById(id) {
     var result;
-    new Firebase(ADDRESS + '/sessions/' + id).once('value', function(snap) {
+    new Firebase(ADDRESS + 'sessions/' + id).once('value', function (snap) {
         result = snap.val();
     });
     return result;
+}
+function getMessagesByConversId(id) {
+    var result;
+    new Firebase(ADDRESS + 'conversations/' + id).once('value', function (snap) {
+        result = snap.val();
+    });
+    return result.messages;
 }
 function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
