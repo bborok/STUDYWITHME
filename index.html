@@ -5,8 +5,10 @@
 
     <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-route.min.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     <link href="http://getbootstrap.com/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
     <script src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
@@ -15,7 +17,7 @@
     <title>StudyWitMe</title>
 </head>
 
-<body ng-app="StudyWitMe" ng-controller="MainController">
+<body>
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav">
     <div class="container">
@@ -32,26 +34,13 @@
 
         <div id="slidemenu">
             <ul class="nav navbar-nav">
-                <li ng-click="currentTpl='assets/templates/searchSession.html'">
-                    <a href="" style="color:white">Search</a></li>
-                <li ng-click="currentTpl='assets/templates/newSession.html'">
-                    <a href="" style="color:white">Create New Session</a></li>
-                <li ng-click="currentTpl='assets/templates/manageSession.html'">
-                    <a href="" style="color:white">Manage Sessions</a></li>
-                <li ng-click="currentTpl='assets/templates/conversations.html'">
-                    <a href="" style="color:white">View Conversations</a></li>
 
 
+                <li><a href = "#searchSession" style="color:white">Search</a></li>
+                <li><a href = "#newSession   " style="color:white">Create New Session</a></li>
+                <li><a href = "#manageSession" style="color:white">Manage Sessions</a></li>
+                <li><a href = "#conversations" style="color:white">View Conversation</a></li>
 
-                <!--
-                <li><a href="#searchSession" style="color:white">Search</a></li>
-                <li><a href="#newSession" style="color:white">Create New Session</a></li>
-                <li><a href="#manageSession" style="color:white">Manage Sessions</a></li>
-                <li><a href="#conversations" style="color:white">View Conversation</a></li>
-
-    <div ng-view></div>
-
-                    -->
             </ul>
         </div>
 
@@ -59,7 +48,8 @@
 </div>
 
 <div id="page-content">
-    <div id="tpl-content" ng-include src="currentTpl"></div>
+
+    <div ng-view></div>
 
 </div>
 

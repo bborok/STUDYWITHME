@@ -4,7 +4,7 @@
     <ol ng-hide="displayChat" id="conversations">
         <lable ng-hide="sessions.length">Currently, you are not a member of any Session</lable>
         <li ng-repeat="session in sessions">
-            <a ng-click="openChat(session.key)">
+            <a ng-click="openChat(session.key)" href="#chat">
                 {{session.courseCode}}
                 <strong style="color: red">{{session.unreadMessages}}</strong>
             </a>

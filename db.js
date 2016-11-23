@@ -3,53 +3,37 @@ const ADDRESS = 'https://cmpt106.firebaseio.com/';
 //TODO: Distinguish users
 const USER_ID = "Somebody";
 
-var studyWitMe = angular.module("StudyWitMe", ['firebase']);//, 'ngRoute']);
+var studyWitMe = angular.module("StudyWitMe", ['firebase', 'ngRoute']);
 
-// studyWitMe.config(['$routeProvider', function($routeProvider) {
-//     $routeProvider.
-//
-//     when('/searchSession', {
-//         templateUrl: 'assets/templates/searchSession.html',
-//         controller: 'SearchController'
-//     }).
-//     when('/newSession', {
-//         templateUrl: 'assets/templates/newSession.html',
-//         controller: 'CreateController'
-//     }).
-//     when('/manageSession', {
-//         templateUrl: 'assets/templates/manageSession.html',
-//         controller: 'ManageController'
-//     }).
-//     when('/conversations', {
-//         templateUrl: 'assets/templates/conversations.html',
-//         controller: 'ConversationController'
-//     }).
-//
-//     otherwise({
-//         redirectTo: '/searchSession'
-//     });
-// }]);
+studyWitMe.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/searchSession', {
+        templateUrl: 'assets/templates/searchSession.html'
+    }).when('/newSession', {
+        templateUrl: 'assets/templates/newSession.html'
+    }).when('/manageSession', {
+        templateUrl: 'assets/templates/manageSession.html'
+    }).when('/conversations', {
+        templateUrl: 'assets/templates/conversations.html'
+    }).when('/chat', {
+        templateUrl: 'assets/templates/chat.html'
+    }).otherwise({
+        redirectTo: '/searchSession'
+    });
+}]);
 
-studyWitMe.controller('MainController', function ($scope, $firebase) {
-
+studyWitMe.factory('shareConversation', function(){
+    return { id: 'DEFAULT' };
 });
 
-studyWitMe.factory("shareConversation", shareConversation);
 
-function shareConversation() {
-    return { conversationId : ""}
-}
-
-
-
-//TODO: make Multi Chat
-MessageController.$inject = ['$scope','shareConversation'];
+// MessageController.$inject = ['$scope', '$firebase', 'shareConversation'];
 function MessageController($scope, $firebase, shareConversation) {
 
-    var conversationId = shareConversation.conversationId;
 
-    alert("Hello");
-    alert(conversationId);
+    alert(shareConversation.id);
+
+    var conversationId = shareConversation.id;
+
 
     $scope.dbMessages = $firebase(new Firebase(ADDRESS + "conversations/" + conversationId + "/messages"));
 
@@ -116,8 +100,8 @@ function CreateController($scope, $firebase) {
     }
 }
 
-ConversationController.$inject = ["$scope", "$firebase", "$location", "shareConversation"]
-function ConversationController($scope, $firebase, $location, shareConversation) {
+// ConversationController.$inject = ["$scope", "$firebase", "$location", "shareConversation"];
+function ConversationController($scope, $firebase, shareConversation) {
     $scope.dbSession = $firebase(new Firebase(ADDRESS + "sessions"));
     $scope.dbConvers = $firebase(new Firebase(ADDRESS + "conversations"));
 
@@ -152,18 +136,9 @@ function ConversationController($scope, $firebase, $location, shareConversation)
     });
 
     $scope.openChat = function (id) {
-        shareConversation = {
-            conversationId : getSessionById(id).conversationId
-        };
-
-        $location.path('assets/templates/chat.html');
+        shareConversation.id = getSessionById(id).conversationId;
+        alert(shareConversation.id);
     };
-}
-
-function Cntrl($scope, $location) {
-    $scope.changeView = function (view) {
-        $location.path(view);
-    }
 }
 
 //Help Functiones
