@@ -48,6 +48,7 @@ function setupView() {
 
 			imageView.src = (dict["profile_image_url"] == "") ? "DEFAULT_PROFILE_IMAGE.png" : dict["profile_image_url"]
 			nameView.textContent = dict["name"]
+
 			majorView.textContent = dict["major"]
 			yearView.textContent = dict["school_year"]
 			emailView.innerHTML = dict["email"]
