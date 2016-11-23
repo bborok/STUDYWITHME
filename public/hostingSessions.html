@@ -8,6 +8,38 @@
     		border: 1px solid black;
     		border-collapse: collapse;
 		}
+		.box
+		{
+		   display: inline-block;
+		   width: 200px;
+		   height: 300px;
+		   border:1px solid yellow;
+		   background-color: transparent orange; 
+		   position:relative;
+		}
+
+		.box a{
+		      display: inline-block;
+		      position:absolute;
+		      top:45%;
+		      left:10%
+		}
+
+		.button
+		{
+			position: absolute;
+			bottom: 0;
+			width: 200px;
+		}
+
+		.text
+		{
+			margin-top:50%;
+		}
+		.row
+		{
+			display: inline-block;
+		}
 	</style>
 	<link rel = "stylesheet" href = "indexStyle.css">
 	<link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -142,29 +174,11 @@
 			</aside>
 			<section id="main-content">
 					<section class="wrapper">
-						<div class="row">
-								<div class="col-lg-9 main-chart">
-									<table>
-										<caption>Active Sessions</caption>
-										<thead>
-											<tr>
-												<th>Course</th>
-												<th>Campus</th>
-												<th>Description</th>
-											</tr>
-										</thead>
-										<tbody id="tableBody">
-											<!-- <tr>
-												<td>cmpt101</td>
-												<td>Surrey</td>
-												<td>"Assignment 1 study"</td>
-											</tr> -->
-										</tbody>
-									</table>
-
-									<button id="back_to_profile_btn" type="button">view profile</button>
-								</div>
-							</div>
+						<div>
+							<h4>Hosted sessions: </h4>
+							<div class="row" id="hostedRow"></div>
+							<h4>Joined Sessions: </h4>
+							<div class="row" id="joinedRow"></div>
 	</section>
 	</section>
 
