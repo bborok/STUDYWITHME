@@ -74,7 +74,7 @@ function editSession() {
     }
     course += " " + document.getElementById('inputCourseNum');
     
-    let campus = document.getElementById('inputCampus').value;
+    let campus = document.getElementById('inputLoc').value;
     let startDate = document.getElementById('inputStartDate').value;
     let startTime = document.getElementById('inputStartTime').value;
     let fullStartDate = function() {
@@ -85,7 +85,7 @@ function editSession() {
     let startTimestamp = fullStartDate.getTime();
     let duration = document.getElementById('inputDuration').value;
     let endTimestamp = startTimestamp + (duration * 3600 * 1000);
-    let description = document.getElementById('inputDescription').value;
+    let description = document.getElementById('inputDesc').value;
     let exactLocation = document.getElementById('inputExactLocation').value;
     let maxGuests = document.getElementById('inputMaxAttend').value;
 
@@ -111,24 +111,7 @@ function editSession() {
 
     firebase.database().ref("/sessions/"+sessionID+"/metadata/").set(session);
 
-    // console.log(sessionObj)
-
-    /*let newSessionKey = firebase.database().ref().child('sessions').push().key;
-
-    var fanoutObject = {}
-    fanoutObject['/users/'+user.uid+'/hosting_sessions/'+newSessionKey] = true;
-    fanoutObject['/sessions/'+newSessionKey+'/metadata'] = sessionObj;
-
-    // console.log(fanoutObject)
-
-    let updatePromise = firebase.database().ref().update(fanoutObject);
-
-    updatePromise.then(function() {
-	console.log("session created!");
-	window.location = 'main.html';
-    }, function(error) {
-	console.log(error);
-    })*/
+    window.location = "joinedSessions.html";
 }
 
 function gotoProfilePage() {
