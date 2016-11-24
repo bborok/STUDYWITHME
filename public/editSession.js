@@ -72,7 +72,7 @@ function editSession() {
     if (course.length < 4){
 	console.log("invalid course code");
     }
-    course += " " + document.getElementById('inputCourseNum');
+    course += " " + document.getElementById('inputCourseNum').value;
     
     let campus = document.getElementById('inputLoc').value;
     let startDate = document.getElementById('inputStartDate').value;
