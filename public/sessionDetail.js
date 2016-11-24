@@ -106,17 +106,17 @@ function fetchSessionInfo(sessionID) {
 		sessionObj['key'] = sessionID // we'll use this later
 
 		// get the host info:
-		let hostRef = firebase.database().ref().child('users').child(sessionObj.host_id).child('metadata')
+		let hostRef = firebase.database().ref().child('users').child(sessionObj.host_id)
 		hostRef.once('value').then(function(snapshot) {
 			if (snapshot.exists()) {
 				let userObj = snapshot.val()
-				document.getElementById('host_name').textContent = userObj.name
-				document.getElementById('host_image').src = userObj.profile_image_url
+				document.getElementById('hostName').textContent = userObj.name
+				document.getElementById('hostImg').src = userObj.profile_image_url
 			}
 		})
 
 		// console.log(snapshot.val())
-		document.getElementById('course').textContent = sessionObj.course
+		document.getElementById('course').innerHTML = sessionObj.course
 		document.getElementById('campus').textContent = sessionObj.campus
 		document.getElementById('description').textContent = sessionObj.description
 		document.getElementById('max_guests').textContent = sessionObj.max_people
@@ -125,8 +125,8 @@ function fetchSessionInfo(sessionID) {
 		document.getElementById('start_time').textContent = timestampToReadableTime(sessionObj.start_date)
 		document.getElementById('duration').textContent = hourlyDurationFromTimestamps(sessionObj.start_date, sessionObj.end_date)
 
-		// setup the appropriate buttons
-		setupActionButton(sessionObj)
+	    // setup the appropriate buttons
+	    setupActionButton(sessionObj);
 	}, function(error) {
 		console.log(error)
 	})
@@ -145,23 +145,25 @@ function setupActionButton(sessionObj) {
 	let joinedSessionsRef = firebase.database().ref().child('sessions').child(sessionObj.key).child('guests')
 	joinedSessionsRef.on('value', function(snapshot) {
 
-		//display # of people currently joined
-		document.getElementById('current_guests').textContent = "("+snapshot.numChildren()+" Joined)"
+	    //display # of people currently joined
+	    document.getElementById('current_guests').textContent = "("+snapshot.numChildren()+" Joined)"
+	    //document.getElementById('current_guests').textContent = snapshot.numChildren()+" Guests"
 
 		// if the user is the session host, show 'edit-session' button, exit.
 		let user = firebase.auth().currentUser
 		if (user.uid == sessionObj.host_id) {
-			// console.log("INFO: you're the host")
-			let btnContainer = document.getElementById('action_btn')
+		    // console.log("INFO: you're the host")
+		    let btnContainer = document.getElementById('action_btn')
 
-			let btn = document.createElement('button')
-			let txt = document.createTextNode("Edit Session")
-			btn.appendChild(txt)
-			btn.addEventListener('click', editSession, false)
+		    let btn = document.createElement('button')
+		    let txt = document.createTextNode("Edit Session")
+		    btn.appendChild(txt)
+		    btn.addEventListener('click', editSession, false)
 
-			removeAllChildren(btnContainer)
-			btnContainer.appendChild(btn)
-			return
+		    removeAllChildren(btnContainer)
+		    btnContainer.appendChild(btn)
+		    btnContainer.children[0].className = 'btn btn-default'
+		    return
 		}
 
 		let joiners = snapshot.val()
@@ -181,30 +183,33 @@ function setupActionButton(sessionObj) {
 
 		// if the user has joined this session already
 		if ( joiners != null && user.uid in joiners ) {
-			// console.log("INFO: joined")
-			let btnContainer = document.getElementById('action_btn')
+		    // console.log("INFO: joined")
+		    let btnContainer = document.getElementById('action_btn')
 
-			let btn = document.createElement('button')
-			let txt = document.createTextNode("Decline Session")
-			btn.appendChild(txt)
-			btn.addEventListener('click', function() { declineSession(sessionObj) }, false)
+		    let btn = document.createElement('button')
+		    let txt = document.createTextNode("Decline Session")
+		    btn.appendChild(txt)
+		    btn.addEventListener('click', function() { declineSession(sessionObj) }, false)
 
-			removeAllChildren(btnContainer)
-			btnContainer.appendChild(btn)
+		    removeAllChildren(btnContainer)
+		    btnContainer.appendChild(btn)
+		    btnContainer.children[0].className = 'btn btn-default'
 		} else {
-			// console.log("INFO: not joined")
-			let btnContainer = document.getElementById('action_btn')
+		    // console.log("INFO: not joined")
+		    let btnContainer = document.getElementById('action_btn')
 
-			let btn = document.createElement('button')
-			let txt = document.createTextNode("Join Session")
-			btn.appendChild(txt)
-			btn.addEventListener('click', function() { joinSession(sessionObj) }, false)
+		    let btn = document.createElement('button')
+		    let txt = document.createTextNode("Join Session")
+		    btn.appendChild(txt)
+		    btn.addEventListener('click', function() { joinSession(sessionObj) }, false)
 
-			removeAllChildren(btnContainer)
-			btnContainer.appendChild(btn)
+		    removeAllChildren(btnContainer)
+		    btnContainer.appendChild(btn)
+		    btnContainer.children[0].className = 'btn btn-default'
 		}
+
 	}, function(error) {
-		console.log(error)
+	    console.log(error)
 	})
 }
 
@@ -243,7 +248,7 @@ function declineSession(sessionObj) {
 }
 
 function editSession() {
-	console.log("@todo: operations to edit session")
+    window.location.href = "editSession.html";
 }
 
 function timestampToReadableDate(timestamp) {
@@ -270,8 +275,9 @@ function timestampToReadableTime(timestamp) {
 }
 
 function hourlyDurationFromTimestamps(start_timestamp, end_timestamp) {
-	let hours = (end_timestamp - start_timestamp) / 1000 / 3600
-	return hours + ' ' + (hours > 1 ? 'hrs' : 'hr')
+    let hours = (end_timestamp - start_timestamp) / 1000 / 3600
+    // console.log(timestampToReadableTime(end_timestamp)+' - '+timestampToReadableTime(start_timestamp))
+    return hours + ' ' + (hours > 1 ? 'hrs' : 'hr')
 }
 
 function joinOrDeclineSession() {

@@ -146,107 +146,88 @@
 
       <section id="main-content">
           <section class="wrapper">
-            <div class="row">
-                <div class="col-lg-9 main-chart">
-                  <div class="col-lg-12 ds">
-										<form class="">
-												<div class="form-group row">
-														<!-- course name -->
-														<div class="col-sm-6 form-group">
-																<label for="courseName">Course</label>
-																<input type="text" class="form-control" id="course" aria-describedby="courseNameHelp" placeholder="CMPT" required>
-														</div>
-														<!-- course number -->
-														<div class="col-sm-6 form-group">
-																<label for="courseNumber">Number</label>
-																<input type="number" class="form-control" id="courseNumber" aria-describedby="courseNumberHelp" placeholder="do this" required>
-														</div>
-												</div>
-												<div class="form-group row">
-														<!-- start date -->
-														<div class="form-group col-sm-6">
-																<label for="start-date-input">Date</label>
-																<input class = "form-control" type="text" id="start_date" placeholder="YYYY-MM-DD">
-																<!-- <input class="form-control" type="date" value="2016-10-14" id="start-date-input"> -->
-														</div>
-														<!-- start time -->
-														<div class="form-group col-sm-6">
-																<label for="start-time-input">Start Time</label>
-																<input class = "form-control" type="text" id="start_time" placeholder="HH:MM">
-																<!-- <input class="form-control" type="time" value="20:32:00" id="start-time-input"> -->
-														</div>
-												</div>
-												<!-- duration -->
-												<div class="form-group">
-														<label for="duration-input">Duration (hrs)</label>
-														<input class = "form-control" aria-describedby="durationHelp" type="number" id="duration" min="0.5" max="3.0" step="0.5" value="1.0">
-														<!-- <input class="form-control" type="range" min="0.5" max="4" step="0.5" value="1" id="duration-input" aria-describedby="durationHelp"> -->
-														<small id="durationHelp" class="form-text text-muted">We'll automatically delete your session after its duration</small>
-												</div>
-												<!-- campus -->
-												<legend>Campus</legend>
-												<select class = "form-control" name="" id="campus">
-														<option value="burnaby">Burnaby</option>
-														<option value="surrey">Surrey</option>
-														<option value="vancouver">Vancouver</option>
-												</select><br>
-												<!-- <fieldset class="form-group">
+            <div class="col-lg-12 ds">
 
-														<legend>Campus</legend>
-														<select class = "form-control" name="" id="campus">
-																<option value="burnaby">Burnaby</option>
-																<option value="surrey">Surrey</option>
-																<option value="vancouver">Vancouver</option>
-														</select>
-														<div class="row"> was removed
-														<div class="col-sm-4">
-																<label class="form-check-inline">
-																		<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked> Burnaby
-																</label>
-														</div>
-														<div class="col-sm-4">
-																<label class="form-check-inline">
-																		<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2"> Surrey
-																</label>
-														</div>
-														<div class="col-sm-4">
-																<label class="form-check-inline">
-																		<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3"> Vancouver
-																</label>
-														</div>
-													</div> was removed
-												</fieldset> -->
-												<!-- location -->
-												<div class="form-group">
-														<label for="exactLocation">Location</label>
-														<input type="text" class = "form-control" aria-describedby = "locationHelp" placeholder="e.g Room 3001, Bennett Library" id="exact_location" required>
-														<!-- <input type="text" class="form-control" id="exactLocation" aria-describedby="locationHelp" placeholder="e.g Room 3001, Bennett Library" required> -->
-														<small id="locationHelp" class="form-text text-muted">We'll only show people your location when they join your session.</small>
-												</div>
-												<!-- # of attendees -->
-												<div class="form-group">
-														<label for="max-attendees">Max Number of Attendees</label>
-														<input class = "form-control" aria-describedby = "attendeesHelp" type="number" min="1" max="5" value="3" id="max_guests">
-														<!-- <input class="form-control" type="number" min="1" max="5" value="2" id="max-attendees" aria-describedby="attendeesHelp"> -->
-														<small id="attendeesHelp" class="form-text text-muted">Once this many people join your session, we'll stop broadcasting it.</small>
-												</div>
-												<!-- description -->
-												<div class="form-group">
-														<label for="exampleTextarea">Description</label>
-														<textarea class = "form-control" aria-describedby = "descriptionHelp" name="" cols="80" rows="4" id="description" maxlength="100" placeholder="What would you be doing?"></textarea>
+       <!-- Session editing container -->
+      <div class="container-fluid">
+         <h3>Session Editing</h3>
+         <form class="form-horizontal">
+     <div class="form-group">
+       <label for="inputCourse" class="col-sm-2 control-label">Course</label>
+       <div class="col-sm-4">
+         <input type="text" class="form-control" id="inputCourse" maxlength="4" minlength="4"
+          placeholder="ie. CMPT">
+       </div>
+       <div class="col-sm-2">
+         <input type="number" class="form-control" id="inputCourseNum"
+          min="100" max="899" value="100">
+       </div>
+     </div>
 
-														<!-- <textarea class="form-control" id="exampleTextarea" rows="4" aria-describedby="descriptionHelp"></textarea> -->
-														<small id="descriptionHelp" class="form-text text-muted">For instance, "I will be studying for Midterm 1".</small>
-												</div>
-												<!-- create button -->
-												<button id = "create_session_btn" type="button" class="btn btn-primary btn-lg col-xs-12" onclick = "editSession()">Create Session</button>
+     <div class="form-group">
+       <label for="inputStartDate" class="col-sm-2 control-label">Start at</label>
+       <div class="col-sm-4">
+         <input type="text" class="datepicker" data-provide="datepicker" data-date-format="mm/dd/yyyy" id="inputStartDate"
+          value="12/20/2016">
+       </div>
+     </div>
+     <div class="form-group">
+       <label for="inputStartTime" class="col-sm-2 control-label">Start Time</label>
+       <div class="col-sm-2">
+         <input type="time" class="form-control" id="inputStartTime" value="11:30:00">
+       </div>
+       <label for="inputDuration" class="col-sm-2 control-label">Duration (hrs)</label>
+       <div class="col-sm-2">
+         <input type="number" class="form-control" id="inputDuration"
+          value="1" min="0.5" max="10" step="0.5">
+       </div>
+     </div>
 
-												<button id = "view_profile_btn" type = "button" class = "btn btn-primary btn-lg col-xs-12" onclick = "gotoProfilePage()">Back to Profile</button>
+     <div class="form-group">
+       <label for="inputDesc" class="col-sm-2 control-label">Description</label>
+       <div class="col-sm-6">
+         <textarea class="form-control" id="inputDesc" placeholder="Description"></textarea>
+       </div>
+     </div>
 
-										</form>
-                  </div>
-                  </div>
-                </div>
+     <div class="form-group">
+       <label for="inputLoc" class="col-sm-2 control-label">Campus</label>
+       <div class="col-sm-6">
+         <select id="inputLoc">
+           <option value="Surrey">Surrey</option>
+           <option value="Burnaby">Burnaby</option>
+           <option value="Vancouver">Vancouver</option>
+         </select>
+       </div>
+     </div>
+
+     <div class="form-group">
+       <label for="inputRoom" class="col-sm-2 control-label">Room</label>
+       <div class="col-sm-6">
+         <input type="text" class="form-control" id="inputExactLocation" placeholder="Location (ie. Room 3150)">
+       </div>
+     </div>
+
+     <div class="form-group">
+       <label for="inputMaxAttend" class="col-sm-2 control-label">Max. Attendees</label>
+       <div class="col-sm-4">
+         <input type="number" class="form-control" id="inputMaxAttend"
+          min="2" max="6" value="3">
+       </div>
+     </div>
+
+     <div class="form-group">
+       <div class="col-sm-offset-2 col-sm-6">
+         <button type="button" class="btn btn-default" id="create_session_btn" onclick="editSession()">Submit</button>
+         <button type="button" class="btn btn-default" id="view_profile_btn" onclick="gotoProfilePage()">Return to Profile</button>
+       </div>
+     </div>
+         </form>
+      </div>
+
+
+
+           </div><!-- /col-lg-12 -->
               </section>
 
   </section>
@@ -255,10 +236,8 @@
 
 
 <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
-<script type="text/javascript" src="main.js"></script>
+<!-- <script type="text/javascript" src="main.js"></script> -->
 <script type="text/javascript" src="editSession.js"></script>
-
-<script type="text/javascript" src="index.js"></script>
 </body>
 
 </html>
