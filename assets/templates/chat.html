@@ -1,7 +1,7 @@
 <div ng-controller="MessageController">
 
     <ol id="conversations">
-        <lable ng-hide="messages.length">No Messages to Display</lable>
+        <lable ng-hide="messagesExist">No Messages to Display</lable>
         <li ng-repeat="message in messages">
             {{message.owner}}
             {{message.text}}

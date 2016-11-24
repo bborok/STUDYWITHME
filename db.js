@@ -21,52 +21,19 @@ studyWitMe.config(['$routeProvider', function ($routeProvider) {
     });
 }]);
 
-studyWitMe.factory("Auth", ["$firebaseAuth",
-    function($firebaseAuth) {
-        var ref = new Firebase(ADDRESS);
-        return $firebaseAuth(ref);
-    }
-]);
-
-studyWitMe.controller('loginCtrl', ['$scope', '$state', '$http', 'Auth',
-    function($scope, $state, $http, Auth) {
-        $scope.auth = Auth;
-        $scope.auth.$onAuth(function(authData) {
-            $scope.authData = authData;
-        });
-        $scope.login = function() {
-            Auth.$authWithPassword({
-                email: $scope.email,
-                password: $scope.password
-            })
-                .then(function(authData) {
-                    console.log('Logged in as:', authData.uid);
-                    //$state.go('profile');
-                })
-                .catch(function(err) {
-                    console.log('error:',err);
-                    //$state.go('login');
-                });
-        };
-    }
-]);
-
-
 studyWitMe.factory('shareConversation', function(){
     return { id: 'DEFAULT' };
 });
 function MessageController($scope, $firebase, shareConversation) {
-
-
-    alert(shareConversation.id);
-
+    //Get conversation id from user selection
     var conversationId = shareConversation.id;
 
-
     $scope.dbMessages = $firebase(new Firebase(ADDRESS + "conversations/" + conversationId + "/messages"));
+    $scope.messagesExist = false;
 
     $scope.dbMessages.$on('value', function () {
         $scope.messages = getMessagesByConversId(conversationId);
+        $scope.messagesExist = $scope.messages.length != 0;
     });
 
     $scope.sendMessage = function (event) {
@@ -78,8 +45,8 @@ function MessageController($scope, $firebase, shareConversation) {
                     text: textEntered,
                     date: new Date()
                 });
+                $scope.message = "";
                 $scope.messageBox.value = '';
-                $scope.message.clean;
             }
         }
     }
@@ -162,12 +129,12 @@ function ConversationController($scope, $firebase, shareConversation) {
     });
 
     $scope.openChat = function (id) {
+        //Send conversation id of the picked session
         shareConversation.id = getSessionById(id).conversationId;
-        alert(shareConversation.id);
     };
 }
 
-//Help Functiones
+//Help Functions
 function getSessionById(id) {
     var result;
     new Firebase(ADDRESS + 'sessions/' + id).once('value', function (snap) {
@@ -182,11 +149,8 @@ function getMessagesByConversId(id) {
     });
     return result.messages;
 }
-function isNumber(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-}
 
-//TODO
+//TODO TO be completed
 function ManageController($scope, $firebase) {
 
 }
