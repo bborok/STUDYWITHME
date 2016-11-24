@@ -1,102 +1,106 @@
 // Initialize Firebase
 var config = {
-	apiKey: "AIzaSyCCcJUaBLram1g9zoqTUVkK9K-iHyv4V-A",
+	/*apiKey: "AIzaSyCCcJUaBLram1g9zoqTUVkK9K-iHyv4V-A",
 	authDomain: "studywitme-f268e.firebaseapp.com",
 	databaseURL: "https://studywitme-f268e.firebaseio.com",
 	storageBucket: "studywitme-f268e.appspot.com",
-	messagingSenderId: "1009156773779"
+	messagingSenderId: "1009156773779"*/
+    apiKey: "AIzaSyA_ZkwZnJvENuwgrzizLwnIVEUNJ9jHgX4",
+    authDomain: "test-e0711.firebaseapp.com",
+    databaseURL: "https://test-e0711.firebaseio.com",
+    storageBucket: "test-e0711.appspot.com",
+    messagingSenderId: "335642349875"
 };
 firebase.initializeApp(config);
 
 function initApp() {
-	console.log("create session page")
+    console.log("create session page");
 
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
-			console.log("user: " + user.uid + " isAnonymous: " + user.isAnonymous)
-            setupViews()
+		    console.log("user: " + user.uid + " isAnonymous: " + user.isAnonymous);
 		} else {
-			console.log("signed out")
+		    console.log("signed out");
 		}
-	})
+	});
 
-	document.getElementById('create_session_btn').addEventListener('click', createSession, false);
-	document.getElementById('view_profile_btn').addEventListener('click', gotoProfilePage, false);
-}
-
-function setupViews() {
-	//todo: initialize fields to default values
+    //document.getElementById('create_session_btn').addEventListener('click', createSession, false);
+    //document.getElementById('view_profile_btn').addEventListener('click', gotoProfilePage, false);
 }
 
 function createSession() {
 
-	let course = document.getElementById('course').value
-	let campus = document.getElementById('campus').value
-	let startDate = document.getElementById('start_date').value
-	let startTime = document.getElementById('start_time').value
+    var course = document.getElementById('inputCourse').value.toUpperCase();
 
-	let fullStartDate = function() {
-		let dateStr = startDate + " " + startTime + ":00"
-		let date = new Date(dateStr)
-		return date
-	}()
+    //should be handled more elegantly
+    if (course.length < 4){
+	//break;
+    }
+    course += " " + document.getElementById('inputCourseNum').value;
+    
+    let campus = document.getElementById('inputCampus').value;
+    let startDate = document.getElementById('inputStartDate').value;
+    let startTime = document.getElementById('inputStartTime').value;
+    let fullStartDate = function() {
+	let dateStr = startDate + " " + startTime;
+	let date = new Date(dateStr);
+	return date;
+    }();
+    let startTimestamp = fullStartDate.getTime();
+    let duration = document.getElementById('inputDuration').value;
+    let endTimestamp = startTimestamp + (duration * 3600 * 1000);
+    let description = document.getElementById('inputDesc').value;
+    let exactLocation = document.getElementById('inputExactLocation').value;
+    let maxGuests = document.getElementById('inputMaxAttend').value;
 
-	let startTimestamp = fullStartDate.getTime()
+    
 
-	let duration = document.getElementById('duration').value
+    //@todo: input validation
 
-	let endTimestamp = startTimestamp + (duration * 3600 * 1000)
+    var user = firebase.auth().currentUser;
 
-	let description = document.getElementById('description').value
+    if (user == null) {
+	alert("could not create session: user not signed in");
+	return;
+    }
 
-	let exactLocation = document.getElementById('exact_location').value
+    let session = {
+	    campus: campus,
+	    course: course,
+	    description: description,
+	    end_date: endTimestamp,
+	    exact_location: exactLocation,
+	    host_id: user.uid,
+	    max_people: maxGuests,
+	    start_date: startTimestamp
+    };
 
-	let maxGuests = document.getElementById('max_guests').value
+    let newSessionKey = firebase.database().ref().child('sessions').push().key;
 
-	//@todo: input validation
+    var fanoutObject = {}
+    fanoutObject['/users/'+user.uid+'/hosting_sessions/'+newSessionKey] = true;
+    fanoutObject['/sessions/'+newSessionKey+'/metadata'] = session;
 
-	var user = firebase.auth().currentUser;
+    // console.log(fanoutObject)
 
-	if (user == null) {
-		alert("could not create session: user not signed in")
-		return
-	}
+    let updatePromise = firebase.database().ref().update(fanoutObject);
 
-	let sessionObj = {
-		campus: campus,
-		course: course,
-		description: description,
-		end_date: endTimestamp,
-		exact_location: exactLocation,
-		host_id: user.uid,
-		max_people: maxGuests,
-		start_date: startTimestamp
-	}
-
-	// console.log(sessionObj)
-
-	let newSessionKey = firebase.database().ref().child('sessions').push().key;
-
-	var fanoutObject = {}
-	fanoutObject['/users/'+user.uid+'/hosting_sessions/'+newSessionKey] = true;
-	fanoutObject['/sessions/'+newSessionKey+'/metadata'] = sessionObj;
-
-	// console.log(fanoutObject)
-
- 	let updatePromise = firebase.database().ref().update(fanoutObject)
-
-	updatePromise.then(function() {
-		console.log("session created!")
-		window.location = 'main.html'
-	}, function(error) {
-		console.log(error)
-	})
+    updatePromise.then(function() {
+	console.log("session created!");
+	window.location = 'main.html';
+    }, function(error) {
+	console.log(error);
+    })
 }
 
 function gotoProfilePage() {
-	window.location = "main.html"
+    window.location = "main.html";
 }
 
 window.addEventListener('load', function() {
     initApp()
 });
+
+(function(){
+    console.log("script is running");
+}())
