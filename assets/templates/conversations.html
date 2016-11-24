@@ -1,14 +1,16 @@
 <div ng-controller="ConversationController">
 
 
-    <ol ng-hide="displayChat" id="conversations">
+    <ul ng-hide="displayChat" id="conversations">
         <lable ng-hide="sessions.length">Currently, you are not a member of any Session</lable>
         <li ng-repeat="session in sessions">
+            <div id="block">
             <a ng-click="openChat(session.key)" href="#chat">
                 {{session.courseCode}}
                 <strong style="color: red">{{session.unreadMessages}}</strong>
             </a>
+            </div>
         </li>
-    </ol>
+    </ul>
 
 </div>
