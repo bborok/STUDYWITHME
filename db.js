@@ -21,12 +21,40 @@ studyWitMe.config(['$routeProvider', function ($routeProvider) {
     });
 }]);
 
+studyWitMe.factory("Auth", ["$firebaseAuth",
+    function($firebaseAuth) {
+        var ref = new Firebase(ADDRESS);
+        return $firebaseAuth(ref);
+    }
+]);
+
+studyWitMe.controller('loginCtrl', ['$scope', '$state', '$http', 'Auth',
+    function($scope, $state, $http, Auth) {
+        $scope.auth = Auth;
+        $scope.auth.$onAuth(function(authData) {
+            $scope.authData = authData;
+        });
+        $scope.login = function() {
+            Auth.$authWithPassword({
+                email: $scope.email,
+                password: $scope.password
+            })
+                .then(function(authData) {
+                    console.log('Logged in as:', authData.uid);
+                    //$state.go('profile');
+                })
+                .catch(function(err) {
+                    console.log('error:',err);
+                    //$state.go('login');
+                });
+        };
+    }
+]);
+
+
 studyWitMe.factory('shareConversation', function(){
     return { id: 'DEFAULT' };
 });
-
-
-// MessageController.$inject = ['$scope', '$firebase', 'shareConversation'];
 function MessageController($scope, $firebase, shareConversation) {
 
 
@@ -99,8 +127,6 @@ function CreateController($scope, $firebase) {
         }
     }
 }
-
-// ConversationController.$inject = ["$scope", "$firebase", "$location", "shareConversation"];
 function ConversationController($scope, $firebase, shareConversation) {
     $scope.dbSession = $firebase(new Firebase(ADDRESS + "sessions"));
     $scope.dbConvers = $firebase(new Firebase(ADDRESS + "conversations"));
