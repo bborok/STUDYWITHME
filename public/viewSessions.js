@@ -109,6 +109,24 @@ window.addEventListener('load', function() {
     initApp()
 });
 
+// function displaySession(sessionObj, sessionKey)
+// {
+// 	let container = document.getElementById("main_container")
+//
+// 	let card = document.createElement("div")
+//
+// 	let courseName = document.createTextNode(sessionObj.course)
+// 	card.appendChild(courseName)
+//
+// 	card.setAttribute('data-session-id', sessionKey)
+// 	card.addEventListener('click', function() {
+// 		localStorage['selected_session'] = sessionKey
+// 		window.location = "sessionDetail.html"
+// 	}, false)
+//
+// 	container.appendChild(card)
+// }
+
 function displaySession(sessionObj, sessionKey)
 {
 	let container = document.getElementById("main_container")
@@ -126,6 +144,10 @@ function displaySession(sessionObj, sessionKey)
 
 	container.appendChild(card)
 }
+
+
+
+
 
 function removeSession(sessionKey) {
 	let sessionCard = document.querySelector('[data-session-id='+sessionKey+']')
