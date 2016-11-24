@@ -1,3 +1,75 @@
+/*input box*/
+#formbox {
+    width: 100%;
+    border: none;
+    background: rgba(0, 0, 0, 0.3);
+    color: rgb(21, 10, 0);
+    padding: 0.7em;
+    display: block;
+    margin-top: 495px;
+}
+
+/*container of chat.html*/
+#container {
+    background: linear-gradient(0deg, #bfc2be 00%, #2275a1 100%);
+    margin: 100px auto;
+    max-width: 500px;
+    height: 550px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    /*border : 1px solid #000;*/
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+/* inside container*/
+#messages {
+    position: absolute;
+    padding: 20px;
+    width: 500px;
+    height: 500px;
+    overflow: scroll;
+    transform: translateX(0);
+    opacity: 1;
+}
+/*individual messages*/
+#bubble {
+    float: left;
+    width: auto;
+    max-width: 80%;
+    position: relative;
+    clear: both;
+    background: #95c2fd;
+    padding: 0.5em 1em;
+    background: linear-gradient(40deg, rgba(255, 255, 255, 0.2) 00%, rgba(255, 255, 255, 0.3) 100%);
+    border-radius: 3px;
+    box-shadow: 0 5px 30px rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    word-wrap: break-word;
+    font-size: 1em;
+    margin-top: 30px;
+    opacity: 1;
+}
+/*your message*/
+#bubble-alt {
+    float: left;
+    width: auto;
+    max-width: 80%;
+    position: relative;
+    clear: both;
+    background: #95c2fd;
+    padding: 0.5em 1em;
+    background: linear-gradient(40deg, rgba(255, 255, 255, 0.2) 00%, rgba(255, 255, 255, 0.3) 100%);
+    border-radius: 3px;
+    box-shadow: 0 5px 30px rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    word-wrap: break-word;
+    font-size: 1em;
+    margin-top: 30px;
+    opacity: 1;
+}
+
 #block{
     background: dodgerblue;
     width: 50%;
@@ -28,7 +100,11 @@ ul {
     margin: 0;
     padding: 0;
 }
-
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 /* adjust body when menu is open */
 body.slide-active {
     overflow-x: hidden
