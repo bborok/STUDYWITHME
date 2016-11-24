@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>Edit Session</title>
     <link rel = "stylesheet" href = "indexStyle.css">
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
@@ -78,7 +78,7 @@
               	  <h5 class="centered"><span id = "name"></span></h5>
 
                   <li class="mt">
-                      <a href="index.html">
+                      <a class="active" href="index.html">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
@@ -91,7 +91,7 @@
 
                   </li>
                   <li class="sub-menu">
-                      <a class="active"  href="createSession.html" >
+                      <a href="createSession.html" >
                           <i class="fa fa-tasks"></i>
                           <span id = "create_session_btn">Create a Session</span>
                       </a>
@@ -146,99 +146,98 @@
 
       <section id="main-content">
           <section class="wrapper">
-            <div class="row">
-                <div class="col-lg-9 main-chart">
-                  <div class="col-lg-12 ds">
-										<div class="container-fluid">
-				 <h3>Session Creation</h3><br>
-				 <form class="form-horizontal">
-		 <div class="form-group">
-			 <label for="inputCourse" class="col-sm-2 control-label">Course</label>
-			 <div class="col-sm-4">
-				 <input type="text" class="form-control" id="inputCourse" maxlength="4" minlength="4"
-					placeholder="ie. CMPT">
-			 </div>
-			 <div class="col-sm-2">
-				 <input type="number" class="form-control" id="inputCourseNum"
-					min="100" max="899" value="100">
-			 </div>
-		 </div>
+            <div class="col-lg-12 ds">
 
-		 <div class="form-group">
-			 <label for="inputStartDate" class="col-sm-2 control-label">Start at</label>
-			 <div class="col-sm-4">
-				 <input type="text" class="datepicker" data-provide="datepicker" data-date-format="mm/dd/yyyy" id="inputStartDate"
-					value="12/20/2016">
-			 </div>
-		 </div>
-		 <div class="form-group">
-			 <label for="inputStartTime" class="col-sm-2 control-label">Start Time</label>
-			 <div class="col-sm-2">
-				 <input type="time" class="form-control" id="inputStartTime" value="11:30:00">
-			 </div>
-			 <label for="inputDuration" class="col-sm-2 control-label">Duration (hrs)</label>
-			 <div class="col-sm-2">
-				 <input type="number" class="form-control" id="inputDuration"
-					value="1" min="0.5" max="10" step="0.5">
-			 </div>
-		 </div>
+       <!-- Session editing container -->
+      <div class="container-fluid">
+         <h3>Session Editing</h3><br>
+         <form class="form-horizontal">
+     <div class="form-group">
+       <label for="inputCourse" class="col-sm-2 control-label">Course</label>
+       <div class="col-sm-4">
+         <input type="text" class="form-control" id="inputCourse" maxlength="4" minlength="4"
+          placeholder="ie. CMPT">
+       </div>
+       <div class="col-sm-2">
+         <input type="number" class="form-control" id="inputCourseNum"
+          min="100" max="899" value="100">
+       </div>
+     </div>
 
-		 <div class="form-group">
-			 <label for="inputDesc" class="col-sm-2 control-label">Description</label>
-			 <div class="col-sm-6">
-				 <textarea class="form-control" id="inputDesc" placeholder="Description"></textarea>
-			 </div>
-		 </div>
+     <div class="form-group">
+       <label for="inputStartDate" class="col-sm-2 control-label">Start at</label>
+       <div class="col-sm-4">
+         <input type="text" class="datepicker" data-provide="datepicker" data-date-format="mm/dd/yyyy" id="inputStartDate"
+          value="12/20/2016">
+       </div>
+     </div>
+     <div class="form-group">
+       <label for="inputStartTime" class="col-sm-2 control-label">Start Time</label>
+       <div class="col-sm-2">
+         <input type="time" class="form-control" id="inputStartTime" value="11:30:00">
+       </div>
+       <label for="inputDuration" class="col-sm-2 control-label">Duration (hrs)</label>
+       <div class="col-sm-2">
+         <input type="number" class="form-control" id="inputDuration"
+          value="1" min="0.5" max="10" step="0.5">
+       </div>
+     </div>
 
-		 <div class="form-group">
-			 <label for="inputLoc" class="col-sm-2 control-label">Campus</label>
-			 <div class="col-sm-6">
-				 <select id="inputCampus">
-					 <option value="Surrey">Surrey</option>
-					 <option value="Burnaby">Burnaby</option>
-					 <option value="Vancouver">Vancouver</option>
-				 </select>
-			 </div>
-		 </div>
+     <div class="form-group">
+       <label for="inputDesc" class="col-sm-2 control-label">Description</label>
+       <div class="col-sm-6">
+         <textarea class="form-control" id="inputDesc" placeholder="Description"></textarea>
+       </div>
+     </div>
 
-		 <div class="form-group">
-			 <label for="inputRoom" class="col-sm-2 control-label">Room</label>
-			 <div class="col-sm-6">
-				 <input type="text" class="form-control" id="inputExactLocation" placeholder="Location (ie. Room 3150)">
-			 </div>
-		 </div>
+     <div class="form-group">
+       <label for="inputLoc" class="col-sm-2 control-label">Campus</label>
+       <div class="col-sm-6">
+         <select id="inputLoc">
+           <option value="Surrey">Surrey</option>
+           <option value="Burnaby">Burnaby</option>
+           <option value="Vancouver">Vancouver</option>
+         </select>
+       </div>
+     </div>
 
-		 <div class="form-group">
-			 <label for="inputMaxAttend" class="col-sm-2 control-label">Max. Attendees</label>
-			 <div class="col-sm-4">
-				 <input type="number" class="form-control" id="inputMaxAttend"
-					min="2" max="6" value="3">
-			 </div>
-		 </div>
+     <div class="form-group">
+       <label for="inputRoom" class="col-sm-2 control-label">Room</label>
+       <div class="col-sm-6">
+         <input type="text" class="form-control" id="inputExactLocation" placeholder="Location (ie. Room 3150)">
+       </div>
+     </div>
 
-		 <div class="form-group">
-			 <div class="col-sm-offset-2 col-sm-6">
-				 <button type="button" class="btn btn-default" id="create_session_btn" onclick="createSession()">Create Session</button>
-				 <button type="button" class="btn btn-default" id="view_profile_btn" onclick="gotoProfilePage()">Return to Profile</button>
-			 </div>
-		 </div>
-				 </form>
-			</div>
-                  </div>
-                  </div>
-                </div>
+     <div class="form-group">
+       <label for="inputMaxAttend" class="col-sm-2 control-label">Max. Attendees</label>
+       <div class="col-sm-4">
+         <input type="number" class="form-control" id="inputMaxAttend"
+          min="2" max="6" value="3">
+       </div>
+     </div>
+
+     <div class="form-group">
+       <div class="col-sm-offset-2 col-sm-6">
+         <button type="button" class="btn btn-default" id="create_session_btn" onclick="editSession()">Submit</button>
+         <button type="button" class="btn btn-default" id="view_profile_btn" onclick="gotoProfilePage()">Return to Profile</button>
+       </div>
+     </div>
+         </form>
+      </div>
+
+
+
+           </div><!-- /col-lg-12 -->
               </section>
 
   </section>
 
 </section>
-
-
+<script src="jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
-<script type="text/javascript" src="main.js"></script>
-<script type="text/javascript" src="createSession.js"></script>
-
-<script type="text/javascript" src="index.js"></script>
+<!-- <script type="text/javascript" src="main.js"></script> -->
+<script type="text/javascript" src="editSession.js"></script>
 </body>
 
 </html>
