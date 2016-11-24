@@ -86,67 +86,67 @@ function gotoHostingSessionsPage() {
 
 function createSession() {
 
-	let course = document.getElementById('course').value
-	let campus = document.getElementById('campus').value
-	let startDate = document.getElementById('start_date').value
-	let startTime = document.getElementById('start_time').value
+    var course = document.getElementById('inputCourse').value.toUpperCase();
 
-	let fullStartDate = function() {
-		let dateStr = startDate + " " + startTime + ":00"
-		let date = new Date(dateStr)
-		return date
-	}()
+    //should be handled more elegantly
+    if (course.length < 4){
+	//break;
+    }
+    course += " " + document.getElementById('inputCourseNum').value;
 
-	let startTimestamp = fullStartDate.getTime()
+    let campus = document.getElementById('inputCampus').value;
+    let startDate = document.getElementById('inputStartDate').value;
+    let startTime = document.getElementById('inputStartTime').value;
+    let fullStartDate = function() {
+	let dateStr = startDate + " " + startTime;
+	let date = new Date(dateStr);
+	return date;
+    }();
+    let startTimestamp = fullStartDate.getTime();
+    let duration = document.getElementById('inputDuration').value;
+    let endTimestamp = startTimestamp + (duration * 3600 * 1000);
+    let description = document.getElementById('inputDesc').value;
+    let exactLocation = document.getElementById('inputExactLocation').value;
+    let maxGuests = document.getElementById('inputMaxAttend').value;
 
-	let duration = document.getElementById('duration').value
 
-	let endTimestamp = startTimestamp + (duration * 3600 * 1000)
 
-	let description = document.getElementById('description').value
+    //@todo: input validation
 
-	let exactLocation = document.getElementById('exact_location').value
+    var user = firebase.auth().currentUser;
 
-	let maxGuests = document.getElementById('max_guests').value
+    if (user == null) {
+	alert("could not create session: user not signed in");
+	return;
+    }
 
-	//@todo: input validation
+    let session = {
+	    campus: campus,
+	    course: course,
+	    description: description,
+	    end_date: endTimestamp,
+	    exact_location: exactLocation,
+	    host_id: user.uid,
+	    max_people: maxGuests,
+	    start_date: startTimestamp
+    };
 
-	var user = firebase.auth().currentUser;
+    let newSessionKey = firebase.database().ref().child('sessions').push().key;
 
-	if (user == null) {
-		alert("could not create session: user not signed in")
-		return
-	}
+    var fanoutObject = {}
+    fanoutObject['/users/'+user.uid+'/hosting_sessions/'+newSessionKey] = true;
+    fanoutObject['/sessions/'+newSessionKey+'/metadata'] = session;
 
-	let sessionObj = {
-		campus: campus,
-		course: course,
-		description: description,
-		end_date: endTimestamp,
-		exact_location: exactLocation,
-		host_id: user.uid,
-		max_people: maxGuests,
-		start_date: startTimestamp
-	}
+    // console.log(fanoutObject)
 
-	// console.log(sessionObj)
+    let updatePromise = firebase.database().ref().update(fanoutObject);
 
-	let newSessionKey = firebase.database().ref().child('sessions').push().key;
-
-	var fanoutObject = {}
-	fanoutObject['/users/'+user.uid+'/hosting_sessions/'+newSessionKey] = true;
-	fanoutObject['/sessions/'+newSessionKey+'/metadata'] = sessionObj;
-
-	// console.log(fanoutObject)
-
- 	let updatePromise = firebase.database().ref().update(fanoutObject)
-
-	updatePromise.then(function() {
-		console.log("session created!")
-		window.location = 'main.html'
-	}, function(error) {
-		console.log(error)
-	})
+    updatePromise.then(function() {
+	console.log("session created!");
+	window.location = 'main.html';
+    }, function(error) {
+	console.log(error);
+    })
 }
 
 function gotoProfilePage() {
