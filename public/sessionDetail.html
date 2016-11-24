@@ -152,78 +152,96 @@
       </aside>
       <section id="main-content">
           <section class="wrapper">
-            <div class="col-lg-12 ds">
-	    <div class="container-fluid">
-	      <h3>Session Details</h3>
-	      <form class="form-horizontal">
-		<div class="form-group">
 
-		  <label for="course" class="col-sm-4 control-label">Course</label>
-		  <div class="col-sm-4"><p id="course">Course</p></div>
+              <div class="col-lg-12 ds">
+            <h3>Profile</h3>
 
-		</div>
-		<div class="form-group">
+          <div class="desc">
+              <div class="form-group">
+                <label for="inputCourse" class="col-sm-2 control-label">Course</label>
+                    <div class="col-sm-offset-5">
+                        <h4><span id="course">Course</span></h4>
+                    </div>
+              </div>
+          </div>
+          <div class="desc">
+              <div class="form-group">
+                <label for="inputCourse" class="col-sm-2 control-label">Campus</label>
+                    <div class="col-sm-offset-5">
+                        <h4><span id="campus">Campus</span></h4>
+                    </div>
+              </div>
+          </div>
+          <div class="desc">
+              <div class="form-group">
+                <label for="inputCourse" class="col-sm-2 control-label">Start Date</label>
+                    <div class="col-sm-offset-5">
+                        <h4><span id="start_date">Start Date</span></h4>
+                    </div>
+              </div>
+          </div>
+          <div class="desc">
+              <div class="form-group">
+                <label for="inputCourse" class="col-sm-2 control-label">Start Time</label>
+                    <div class="col-sm-offset-5">
+                        <h4><span id="start_time">Start Time</span></h4>
+                    </div>
+              </div>
+          </div>
+          <div class="desc">
+              <div class="form-group">
+                <label for="inputCourse" class="col-sm-2 control-label">Duration</label>
+                    <div class="col-sm-offset-5">
+                        <h4><span id="duration">Duration</span></h4>
+                    </div>
+              </div>
+          </div>
+          <div class="desc">
+              <div class="form-group">
+                <label for="inputCourse" class="col-sm-2 control-label">Location</label>
+                    <div class="col-sm-offset-5">
+                        <h4><span id="exact_location">Location</span></h4>
+                    </div>
+              </div>
+          </div>
+          <div class="desc">
+              <div class="form-group">
+                <label for="inputCourse" class="col-sm-2 control-label">Max. Guests</label>
+                    <div class="col-sm-offset-5">
+                        <h4><span id="max_guests">Max. Guests</span></h4>
+                    </div>
+              </div>
+          </div>
+          <div class="desc">
+              <div class="form-group">
+                <label for="inputCourse" class="col-sm-2 control-label">Description</label>
+                    <div class="col-sm-offset-5">
+                        <h4><span id="description">Description</span></h4>
+                    </div>
+              </div>
+          </div>
+          <div class="desc">
+              <div class="form-group">
+                <label for="inputCourse" class="col-sm-2 control-label">Host</label>
+                    <div class="col-sm-offset-5">
+                        <!-- <img src="DEFAULT_PROFILE_IMAGE.png" id="hostImg" alt="Session Host" height="50" width="50"> -->
+                        <img src="DEFAULT_PROFILE_IMAGE.png" alt="Session Host" height="50" width="50">
 
-		  <label for="campus" class="col-sm-4 control-label">Campus</label>
-		  <div class="col-sm-4"><p id="campus">Campus</p></div>
-		</div>
-		<div class="form-group">
+                        <h4><span id="hostName">Host</span></h4>
+                    </div>
+              </div>
+          </div>
 
-		  <label for="start_date" class="col-sm-4 control-label">Start Date</label>
-		  <div class="col-sm-4"><p id="start_date">Start Date</p></div>
-		</div>
-		<div class="form-group">
 
-		  <label for="start_time" class="col-sm-4 control-label">Start Time</label>
-		  <div class="col-sm-4"><p id="start_time">Start Time</p></div>
 
-		</div>
-		<div class="form-group">
+    </div><!-- /col-lg-3 -->
+          </section>
 
-		  <label for="duration" class="col-sm-4 control-label">Duration</label>
-		  <div class="col-sm-4"><p id="duration">Duration</p></div>
 
-		</div>
-		<div class="form-group">
+        <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+        <script type="text/javascript" src="sessionDetail.js"></script>
 
-		  <label for="exact_location" class="col-sm-4 control-label">Location</label>
-		  <div class="col-sm-4"><p id="exact_location">Location</p></div>
-
-		</div>
-		<div class="form-group">
-
-		  <label for="max_guests" class="col-sm-4 control-label">Max. Guests</label>
-		  <div class="col-sm-1"><p id="max_guests">Max Guests</p></div>
-		  <p id="current_guests"></p>
-
-		</div>
-		<div class="form-group">
-
-		  <label for="description" class="col-sm-4 control-label">Description</label>
-		  <div class="col-sm-8"><p id="description">Description</p></div>
-
-		</div>
-		<div class="form-group">
-
-		  <label for="hostImg" class="col-sm-4 control-label">Host</label>
-		  <div class="col-sm-4">
-		    <img src="DEFAULT_PROFILE_IMAGE.png" id="hostImg" alt="Session Host" height="50" width="50">
-		  </div>
-		  <div class="col-sm-4">
-		    <p id="hostName">Host Name</p>
-		  </div>
-
-		</div>
-	      </form>
-	      <div class="col-sm-offset-4" id="action_btn"></div>
-	    </div>
-	  </div>
-							<script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
-							<script type="text/javascript" src="sessionDetail.js"></script>
-
-						</section>
-				  </section>
-				</section>
+    </section>
 </body>
 
 </html>
