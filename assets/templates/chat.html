@@ -17,11 +17,13 @@
 
 
         <div id="chatbox"></div>
-        <div id="formbox">
-            <form>
-                <input id="messageBox" placeholder="Enter your Message..." ng-keypress="sendMessage($event)" ng-model="message"/>
-            </form>
-        </div>
+
+    </div>
+
+    <div id="formbox">
+        <form id="message-form">
+            <input id="messageBox" placeholder="Enter your Message..." ng-keypress="sendMessage($event)" ng-model="message"/>
+        </form>
     </div>
 
 

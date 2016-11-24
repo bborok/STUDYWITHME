@@ -1,20 +1,32 @@
 /*input box*/
+#messageBox {
+    width: 98%;
+    border: solid 3px white;
+    height: 100%;
+}
+/*container for input box*/
 #formbox {
     width: 100%;
     border: none;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(179, 179, 179, 0.84);
     color: rgb(21, 10, 0);
     padding: 0.7em;
     display: block;
-    margin-top: 495px;
+    margin-top: 0px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+
 }
 
 /*container of chat.html*/
 #container {
-    background: linear-gradient(0deg, #bfc2be 00%, #2275a1 100%);
+    background: #540909;
     margin: 100px auto;
+    margin-bottom: 0px;
     max-width: 500px;
-    height: 550px;
+    height: 400px;
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
     /*border : 1px solid #000;*/
     overflow: hidden;
@@ -26,8 +38,8 @@
     position: absolute;
     padding: 20px;
     width: 500px;
-    height: 500px;
-    overflow: scroll;
+    height: 100%;
+    overflow-y: scroll;
     transform: translateX(0);
     opacity: 1;
 }
