@@ -1,7 +1,7 @@
 angular.module("StudyWitMe")
-    .controller("ConversationController", function ($scope, $firebase, shareConversation) {
-        $scope.dbSession = $firebase(new Firebase(ADDRESS + "sessions"));
-        $scope.dbConvers = $firebase(new Firebase(ADDRESS + "conversations"));
+    .controller("ConversationController", function ($scope, $firebase, shareConversation, FB_URL) {
+        $scope.dbSession = $firebase(new Firebase(FB_URL + "sessions"));
+        $scope.dbConvers = $firebase(new Firebase(FB_URL + "conversations"));
 
         $scope.sessions = [];
         $scope.conversations = [];
@@ -35,13 +35,13 @@ angular.module("StudyWitMe")
 
         $scope.openChat = function (id) {
             //Send conversation id of the picked session
-            shareConversation.id = getSessionById(id).conversationId;
+            shareConversation.id = getSessionById(FB_URL, id).conversationId;
         };
     });
 
-function getSessionById(id) {
+function getSessionById(FB_URL, id) {
     var result;
-    new Firebase(ADDRESS + 'sessions/' + id).once('value', function (snap) {
+    new Firebase(FB_URL + 'sessions/' + id).once('value', function (snap) {
         result = snap.val();
     });
     return result;

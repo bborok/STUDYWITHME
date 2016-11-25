@@ -1,9 +1,6 @@
-const ADDRESS = 'https://cmpt106.firebaseio.com/';
-
-//TODO: Distinguish users
-const USER_ID = "Somebody";
-
 angular.module("StudyWitMe", ['firebase', 'ngRoute'])
+
+    .constant("FB_URL", 'https://cmpt106.firebaseio.com/')
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/searchSession', {
@@ -16,8 +13,10 @@ angular.module("StudyWitMe", ['firebase', 'ngRoute'])
             templateUrl: 'assets/templates/conversations.html'
         }).when('/chat', {
             templateUrl: 'assets/templates/chat.html'
+        }).when('/login', {
+            templateUrl: 'assets/templates/login.html'
         }).otherwise({
-            redirectTo: '/searchSession'
+            redirectTo: '/login'
         });
     }])
 

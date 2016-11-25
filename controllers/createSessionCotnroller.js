@@ -1,7 +1,7 @@
 angular.module("StudyWitMe")
-    .controller("CreateController", function ($scope, $firebase) {
-        $scope.db = $firebase(new Firebase(ADDRESS + "/sessions"));
-        $scope.dbConvers = $firebase(new Firebase(ADDRESS + "/conversations"));
+    .controller("CreateController", function ($scope, $firebase, FB_URL) {
+        $scope.db = $firebase(new Firebase(FB_URL + "/sessions"));
+        $scope.dbConvers = $firebase(new Firebase(FB_URL + "/conversations"));
 
         $scope.createSession = function (event) {
             var code = $scope.code.trim();

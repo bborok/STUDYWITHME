@@ -1,14 +1,16 @@
+const USER_ID = "Somebody";
+
 angular.module("StudyWitMe")
-    .controller("MessageController", function ($scope, $firebase, shareConversation) {
+    .controller("MessageController", function ($scope, $firebase, shareConversation, FB_URL) {
 
         //Get conversation id from user selection
         var conversationId = shareConversation.id;
 
-        $scope.dbMessages = $firebase(new Firebase(ADDRESS + "conversations/" + conversationId + "/messages"));
+        $scope.dbMessages = $firebase(new Firebase(FB_URL + "conversations/" + conversationId + "/messages"));
         $scope.messagesExist = false;
 
         $scope.dbMessages.$on('value', function () {
-            $scope.messages = getMessagesByConversId(conversationId);
+            $scope.messages = getMessagesByConversId(FB_URL, conversationId);
             $scope.messagesExist = $scope.messages.length != 0;
         });
 
@@ -28,9 +30,9 @@ angular.module("StudyWitMe")
         }
     });
 
-function getMessagesByConversId(id) {
+function getMessagesByConversId(FB_URL, id) {
     var result;
-    new Firebase(ADDRESS + 'conversations/' + id).once('value', function (snap) {
+    new Firebase(FB_URL + 'conversations/' + id).once('value', function (snap) {
         result = snap.val();
     });
     return result.messages;
