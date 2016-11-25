@@ -22,7 +22,7 @@
 
 /*container of chat.html*/
 #container {
-    background: #540909;
+    background: #F2F5F8;
     margin: 100px auto;
     margin-bottom: 0px;
     max-width: 500px;
@@ -52,7 +52,7 @@
     clear: both;
     background: #95c2fd;
     padding: 0.5em 1em;
-    background: linear-gradient(40deg, rgba(255, 255, 255, 0.2) 00%, rgba(255, 255, 255, 0.3) 100%);
+    background: cornflowerblue;
     border-radius: 3px;
     box-shadow: 0 5px 30px rgba(255, 255, 255, 0.1);
     margin-bottom: 10px;

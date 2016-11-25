@@ -5,10 +5,11 @@
             <div id="messages">
                 <lable ng-hide="messagesExist">No Messages to Display</lable>
                 <li ng-repeat="message in messages">
+
                     <div id="bubble">
                         <div id="bubble-alt"> {{message.owner}}</div>
                         {{message.text}}
-                        <br><br>
+                        <br>
                         {{message.date}}
 
                     </div>
