@@ -1,14 +1,123 @@
-#block{
-    background: darkred;
-    width: auto;
-    height: 100px;
-    padding: 1em;
-    margin-top: 1em;
-    text-align: center;
+/*input box*/
+#messageBox {
+    width: 98%;
+    border: solid 3px white;
+    height: 100%;
+}
+/*container for input box*/
+#formbox {
+    width: 100%;
+    border: none;
+    background: rgba(179, 179, 179, 0.84);
+    color: rgb(21, 10, 0);
+    padding: 0.7em;
+    display: block;
+    margin-top: 0px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+
 }
 
-ul { list-style: none; }
+/*container of chat.html*/
+#container {
+    background: #F2F5F8;
+    margin: 100px auto;
+    margin-bottom: 0px;
+    max-width: 500px;
+    height: 400px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    /*border : 1px solid #000;*/
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+/* inside container*/
+#messages {
+    position: absolute;
+    padding: 20px;
+    width: 500px;
+    height: 100%;
+    overflow-y: scroll;
+    transform: translateX(0);
+    opacity: 1;
+}
+/*individual messages*/
+#bubble {
+    float: left;
+    width: auto;
+    max-width: 80%;
+    position: relative;
+    clear: both;
+    background: #95c2fd;
+    padding: 0.5em 1em;
+    background: cornflowerblue;
+    border-radius: 3px;
+    box-shadow: 0 5px 30px rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    word-wrap: break-word;
+    font-size: 1em;
+    margin-top: 30px;
+    opacity: 1;
+}
 
+/*name of person*/
+#bubble-alt {
+    float: left;
+    width: auto;
+    max-width: 80%;
+    position: relative;
+    clear: both;
+    background: grey;
+    padding: 0.5em 1em;
+    background: linear-gradient(40deg, rgba(255, 255, 255, 0.2) 00%, rgba(255, 255, 255, 0.3) 100%);
+    border-radius: 3px;
+    box-shadow: 0 5px 30px rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    word-wrap: break-word;
+    font-size: 1em;
+    margin-right: 100%;
+    opacity: 1;
+}
+
+#block{
+    background: dodgerblue;
+    width: 50%;
+    height: 100px;
+    margin: auto;
+    margin-bottom: 1em;
+    text-align: center;
+    padding: 40px 0;
+}
+#block:hover {
+    background: #7a7b8b;
+    width: 50%;
+    height: 100px;
+    padding: 40px 0;
+    margin: auto;
+    margin-bottom: 1em;
+    text-align: center;
+    border: 3px solid darkgrey;
+}
+
+a {
+    color:white;
+
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 /* adjust body when menu is open */
 body.slide-active {
     overflow-x: hidden
