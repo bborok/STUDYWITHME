@@ -14,12 +14,22 @@ angular.module("StudyWitMe", ['firebase', 'ngRoute'])
         }).when('/chat', {
             templateUrl: 'assets/templates/chat.html'
         }).when('/login', {
-            templateUrl: 'assets/templates/login.html'
+            templateUrl: 'assets/templates/login.html',
+            // resolve: {
+            //     "currentUser": ["userPromise", "$state", function (userPromise, $state) {
+            //         return userPromise.getPromise().then(function (success) {
+            //             return success;
+            //         }, function (reason) {
+            //             console.log("userPromise Failed: " + reason);
+            //             $state.transitionTo('login');
+            //         }, function (notification) {
+            //             console.log("notification: " + notification);
+            //         });
+            //     }]
+            // }
         }).otherwise({
             redirectTo: '/login'
         });
-    }])
-
-    .factory('shareConversation', function () {
-        return {id: 'DEFAULT'};
-    });
+    }
+    //More configs
+    ]);
