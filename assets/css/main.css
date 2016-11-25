@@ -62,14 +62,15 @@
     margin-top: 30px;
     opacity: 1;
 }
-/*your message*/
+
+/*name of person*/
 #bubble-alt {
     float: left;
     width: auto;
     max-width: 80%;
     position: relative;
     clear: both;
-    background: #95c2fd;
+    background: grey;
     padding: 0.5em 1em;
     background: linear-gradient(40deg, rgba(255, 255, 255, 0.2) 00%, rgba(255, 255, 255, 0.3) 100%);
     border-radius: 3px;
@@ -78,7 +79,7 @@
     color: rgba(255, 255, 255, 0.7);
     word-wrap: break-word;
     font-size: 1em;
-    margin-top: 30px;
+    margin-right: 100%;
     opacity: 1;
 }
 

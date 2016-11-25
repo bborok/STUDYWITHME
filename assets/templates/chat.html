@@ -6,9 +6,11 @@
                 <lable ng-hide="messagesExist">No Messages to Display</lable>
                 <li ng-repeat="message in messages">
                     <div id="bubble">
-                        {{message.owner}}
+                        <div id="bubble-alt"> {{message.owner}}</div>
                         {{message.text}}
+                        <br><br>
                         {{message.date}}
+
                     </div>
                 </li>
             </div>
@@ -25,6 +27,8 @@
             <input id="messageBox" placeholder="Enter your Message..." ng-keypress="sendMessage($event)" ng-model="message"/>
         </form>
     </div>
+
+
 
 
 
