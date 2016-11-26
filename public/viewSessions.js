@@ -127,23 +127,61 @@ window.addEventListener('load', function() {
 // 	container.appendChild(card)
 // }
 
-function displaySession(sessionObj, sessionKey)
-{
+function displaySession(sessionObj, sessionKey) {
+
+	//
+	// let cardSizer = document.createElement("div")
+	// cardSizer.className = "card-sizer"
+	//
+	// let cardGutter = document.createElement("div")
+	// cardGutter.className = "gutter-sizer"
+
 	let container = document.getElementById("main_container")
 
+	// container.appendChild(cardSizer)
+	// container.appendChild(cardGutter)
 	let card = document.createElement("div")
+	card.className = "grid-item"
 
-	let courseName = document.createTextNode(sessionObj.course)
-	card.appendChild(courseName)
+	let h = document.createElement("h4")
+
+	let courseName = sessionObj.course
+	h.textContent = courseName
+	card.appendChild(h)
+
+
 
 	card.setAttribute('data-session-id', sessionKey)
-	card.addEventListener('click', function() {
-		localStorage['selected_session'] = sessionKey
-		window.location = "sessionDetail.html"
-	}, false)
+		card.addEventListener('click', function() {
+			localStorage['selected_session'] = sessionKey
+			window.location = "sessionDetail.html"
+		}, false)
 
-	container.appendChild(card)
+  container.appendChild(card)
+
+
 }
+
+// function displaySession(sessionObj, sessionKey)
+// {
+// 	let container = document.getElementById("main_container")
+//
+// 	let card = document.createElement("div")
+// 	let h = document.createElement("h4")
+// 	// h.textContent = document.createTextNode(sessionObj.course)
+// 	let courseName = document.createTextNode(sessionObj.course)
+// 	card.appendChild(courseName)
+// 	card.className = "grid-item"
+// 	h.textContent = courseName
+// 	card.appendChild(h)
+// 	card.setAttribute('data-session-id', sessionKey)
+// 	card.addEventListener('click', function() {
+// 		localStorage['selected_session'] = sessionKey
+// 		window.location = "sessionDetail.html"
+// 	}, false)
+//
+// 	container.appendChild(card)
+// }
 
 
 
