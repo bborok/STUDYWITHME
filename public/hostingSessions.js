@@ -66,7 +66,7 @@ function setupView() {
 				let dict = snapshot.val()
 				// console.log(dict)
 				let tableBody = document.getElementById("tableBody")
-				addRow(tableBody, dict['course'], dict['campus'], "x")
+				addRow(tableBody, dict['course'], dict['campus'], dict['description'])
 			})
 		});
 	}
