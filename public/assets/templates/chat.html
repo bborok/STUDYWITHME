@@ -1,0 +1,37 @@
+<div ng-controller="MessageController">
+
+    <div id="container">
+        <ol id="conversations">
+            <div id="messages">
+                <lable ng-hide="messagesExist">No Messages to Display</lable>
+                <li ng-repeat="message in messages">
+
+                    <div id="bubble">
+                        <div id="bubble-alt"> {{message.owner}}</div>
+                        {{message.text}}
+                        <br>
+                        {{message.date}}
+
+                    </div>
+                </li>
+            </div>
+
+        </ol>
+
+
+        <div id="chatbox"></div>
+
+    </div>
+
+    <div id="formbox">
+        <form id="message-form">
+            <input id="messageBox" placeholder="Enter your Message..." ng-keypress="sendMessage($event)" ng-model="message"/>
+        </form>
+    </div>
+
+
+
+
+
+</div>
+

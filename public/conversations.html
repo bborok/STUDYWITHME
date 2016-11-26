@@ -3,17 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-		<title>Studywitme</title>
-		<style>
-			#host_image {
-				width: 50px;
-				height: 50px;
-			}
-
-		</style>
+    <title>Studywitme</title>
     <link rel = "stylesheet" href = "indexStyle.css">
     <link href="assets/css/bootstrap.css" rel="stylesheet">
-
     <!--external css-->
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
@@ -129,9 +121,9 @@
                         </a>
 
                   </li>
-
+<!-- <li><a href = "#conversations" style="color:white">View Conversation</a></li> -->
                   <li class="sub-menu">
-                      <a href = "">
+                      <a href = "#conversations">
                           <i class="fa fa-user"></i>
                           <span>Messenger</span>
                       </a>
@@ -152,102 +144,33 @@
       </aside>
       <section id="main-content">
           <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-9 main-chart">
+                  <div ng-controller="ConversationController">
 
-              <div class="col-lg-12 ds">
-            <h3>Profile</h3>
-            <div class="desc">
-                <div class="form-group">
-                  <label for="inputCourse" class="col-sm-2 control-label">Course</label>
-                      <div class="col-sm-offset-5">
-                          <h4><span id="course">Course</span></h4>
-                      </div>
-                </div>
-            </div>
-            <div class="desc">
-                <div class="form-group">
-                  <label for="inputCourse" class="col-sm-2 control-label">Campus</label>
-                      <div class="col-sm-offset-5">
-                          <h4><span id="campus">Campus</span></h4>
-                      </div>
-                </div>
-            </div>
-            <div class="desc">
-                <div class="form-group">
-                  <label for="inputCourse" class="col-sm-2 control-label">Start Date</label>
-                      <div class="col-sm-offset-5">
-                          <h4><span id="start_date">Start Date</span></h4>
-                      </div>
-                </div>
-            </div>
-            <div class="desc">
-                <div class="form-group">
-                  <label for="inputCourse" class="col-sm-2 control-label">Start Time</label>
-                      <div class="col-sm-offset-5">
-                          <h4><span id="start_time">Start Time</span></h4>
-                      </div>
-                </div>
-            </div>
-            <div class="desc">
-                <div class="form-group">
-                  <label for="inputCourse" class="col-sm-2 control-label">Duration</label>
-                      <div class="col-sm-offset-5">
-                          <h4><span id="duration">Duration</span></h4>
-                      </div>
-                </div>
-            </div>
-            <div class="desc">
-                <div class="form-group">
-                  <label for="inputCourse" class="col-sm-2 control-label">Location</label>
-                      <div class="col-sm-offset-5">
-                          <h4><span id="exact_location">Location</span></h4>
-                      </div>
-                </div>
-            </div>
-            <div class="desc">
-                <div class="form-group">
-                  <label for="inputCourse" class="col-sm-2 control-label">Max. Guests</label>
-                      <div class="col-sm-offset-5">
-                          <h4><span id="max_guests">Max. Guests</span></h4>
-                          <h4><span id="current_guests">Current Guests</span></h4>
+                      <ul ng-hide="displayChat" id="conversations">
+                          <lable ng-hide="sessions.length">Currently, you are not a member of any Session</lable>
+                          <li ng-repeat="session in sessions">
+                              <div id="block">
+                              <a ng-click="openChat(session.key)" href="#chat">
+                                  {{session.courseCode}}
+                                  <strong style="color: red">{{session.unreadMessages}}</strong>
+                              </a>
+                              </div>
+                          </li>
+                      </ul>
 
-                      </div>
-                </div>
-            </div>
-            <div class="desc">
-                <div class="form-group">
-                  <label for="inputCourse" class="col-sm-2 control-label">Description</label>
-                      <div class="col-sm-offset-5">
-                          <h4><span id="description">Description</span></h4>
-                      </div>
-                </div>
-            </div>
-            <div class="desc">
-                <div class="form-group">
-                  <label for="inputCourse" class="col-sm-2 control-label">Host</label>
-                      <div class="col-sm-offset-5">
-                          <!-- <img src="DEFAULT_PROFILE_IMAGE.png" id="hostImg" alt="Session Host" height="50" width="50"> -->
-                          <img src="" alt="" id = "host_image" height="50" width="50">
-                          <h4><span id="host_name"></span></h4>
-                      </div>
-                </div>
-            </div>
-<br>
-<br>
-<!-- <button type="button" class="btn btn-theme03" id="create_session_btn" onclick="createSession()">Create Session</button> -->
-            <div id="action_btn">
-              <!-- dynamic action button appears here -->
-            </div>
+                  </div>
 
-          <div id="action_btn">
-		<!-- dynamic action button appears here -->
-	        </div>
-          <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
-          <script type="text/javascript" src="sessionDetail.js"></script>
+                </div>
+              </div>
+            </section>
+  </section>
+</section>
+    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 
-    </div><!-- /col-lg-3 -->
-
-          </section>
-    </section>
 </body>
 
 </html>
