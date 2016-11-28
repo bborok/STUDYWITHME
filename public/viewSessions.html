@@ -209,7 +209,7 @@ max-width: 100%;
 	color: white;
 }
 .heading h4 {
-	padding-top: 20px;
+	padding-top: 10px;
 	font-size: 30px;
 }
 .heading p {
@@ -267,35 +267,18 @@ color: #ccc;
 
 .grid-item h4 {
 		font-size: 24px;
-		padding-top: 80px;
+		padding-top: 60px;
 }
 
 .grid {width:100%; /*background:yellow;*/ text-align: center;}
-.grid-sizer, .grid-item { width: 100%; height: 200px; background: #ccc;}
+.grid-sizer, .grid-item { width: 100%; height: 150px; background: #ccc;}
 .gutter-sizer { width: 10%; }
 /*.grid-item div {width:100%, height: 100%;}*/
     
 
 
-@media(min-width:685px) {
-		.grid-sizer, .grid-item { width: 48%; /*background: pink;*/}
-		.gutter-sizer { width: 4%; }
 
-		.expanded .grid-sizer, .expanded .grid-item { width: 100%; /*background: pink;*/}
-		.expanded .gutter-sizer { width: 4%; }
-
-		.card {
-				/*background: blue;*/
-				max-width: 500px;
-
-		}
-}
 @media(min-width:900px) {
-		.grid-sizer, .grid-item { width: 49%; /*background: green; */}
-		.gutter-sizer { width: 2%;  }
-
-		.expanded .grid-sizer, .expanded .grid-item { width: 49%; /*background: green; */}
-		.expanded .gutter-sizer { width: 2%;  }
 
 		/*.expanded .grid-sizer {
 				background: cyan;
@@ -313,16 +296,8 @@ color: #ccc;
 				margin-left: 280px;
 		}
 }
-@media(min-width:1136px) {
-		.grid-sizer, .grid-item { width: 32%;/* background: red;*/ }
-		.gutter-sizer { width:2%; }
 
-		.expanded .grid-sizer, .expanded .grid-item { width: 32%; /*background: red; */}
-		.expanded .gutter-sizer { width:2%; }
-}
-@media(min-width:1200px){
 
-}
 
 </style>
 
@@ -458,7 +433,7 @@ color: #ccc;
                 <div class="grid">
                     <div class="gutter-sizer"></div>
                     
-                        <div id="main_container">
+                        <div id="main_container" style="padding-left:0px">
                         </div>
                 </div>
             </div>
