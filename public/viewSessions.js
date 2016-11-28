@@ -135,7 +135,7 @@ function displaySession(sessionObj, sessionKey) {
 	//
 	// let cardGutter = document.createElement("div")
 	// cardGutter.className = "gutter-sizer"
-
+    
 	let container = document.getElementById("main_container")
 
 	// container.appendChild(cardSizer)
