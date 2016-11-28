@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 		<title>Studywitme</title>
 		<style>
 			#host_image {
@@ -85,7 +87,7 @@
               	  <h5 class="centered"><span id="name"></span></h5>
 
                   <li class="mt">
-                      <a class="active" href="index.html">
+                      <a href="index.html">
                           <i class="fa fa-dashboard"></i>
                           <span>About</span>
                       </a>
@@ -150,11 +152,110 @@
               <!-- sidebar menu end-->
           </div>
       </aside>
+    
       <section id="main-content">
           <section class="wrapper">
 
               <div class="col-lg-12 ds">
-            <h3>Profile</h3>
+            <h3>Description</h3>
+                  <br><br>
+                  <table class="table table-hover">
+
+	                              <tbody>
+	                              <tr>
+	                                  <td></td>
+	                                  <td></td>
+	                                  <td><h4>Course</h4></td>
+                                      <td></td>
+                                      <td></td>
+	                                  <td><span id="course">Course</span></td>
+	                              </tr>
+	                              <tr>
+	                                   <td></td>
+	                                  <td></td>
+	                                  <td><h4>Campus</h4></td>
+                                      <td></td>
+                                      <td></td>
+	                                  <td><span id="Campus">Campus</span></td>
+	                              </tr>
+	                              <tr>
+	                                   <td></td>
+	                                  <td></td>
+	                                  <td><h4>Start Date</h4></td>
+                                      <td></td>
+                                      <td></td>
+	                                  <td><span id="start_date">Start Date</span></td>
+	                              </tr>
+                                      <tr>
+	                                   <td></td>
+	                                  <td></td>
+	                                  <td><h4>Start Time</h4></td>
+                                      <td></td>
+                                      <td></td>
+	                                  <td><span id="start_time">Start Time</span></td>
+	                              </tr>
+                                      <tr>
+	                                   <td></td>
+	                                  <td></td>
+	                                  <td><h4>Duration</h4></td>
+                                      <td></td>
+                                      <td></td>
+	                                  <td><span id="duration">Duration</span></td>
+	                              </tr>
+                                      <tr>
+	                                   <td></td>
+	                                  <td></td>
+	                                  <td><h4>Location</h4></td>
+                                      <td></td>
+                                      <td></td>
+	                                  <td><span id="exact_location">Location</span></td>
+	                              </tr>
+                                      <tr>
+	                                   <td></td>
+	                                  <td></td>
+	                                  <td><h4>Max.Guests</h4></td>
+                                      <td></td>
+                                      <td></td>
+	                                  <td><span id="current_guests">Max.Guests</span>
+                                          <span id="current_guests">Current Guests</span></td>
+	                              </tr>
+                                      <tr>
+	                                   <td></td>
+	                                  <td></td>
+	                                  <td><h4>Description</h4></td>
+                                      <td></td>
+                                      <td></td>
+	                                  <td><span id="description">Description</span></td>
+	                              </tr>
+                                      <tr>
+	                                   <td></td>
+	                                  <td></td>
+	                                  <td><h4>Host</h4></td>
+                                      <td></td>
+                                      <td></td>
+	                                  <td>
+                                    <img src="" alt="" id = "host_image" height="50" width="50">
+                                        <br><span id="host_name">Host</span></td>
+
+	                              </tr>
+	                              </tbody>
+	                          </table>
+                  
+                  <div id="action_btn">
+              <!-- dynamic action button appears here -->
+            </div>
+
+          <div id="action_btn">
+		<!-- dynamic action button appears here -->
+	        </div>            
+                  
+                  
+                  <center>
+                  <h5>ISSUE::: IF I REMOVE ORIGINAL TABLES, BUTTON DOES NOT APPEAR</h5></center>
+                  
+                  
+<div class="desc">
+                
             <div class="desc">
                 <div class="form-group">
                   <label for="inputCourse" class="col-sm-2 control-label">Course</label>
@@ -231,16 +332,11 @@
                       </div>
                 </div>
             </div>
+
 <br>
 <br>
 <!-- <button type="button" class="btn btn-theme03" id="create_session_btn" onclick="createSession()">Create Session</button> -->
-            <div id="action_btn">
-              <!-- dynamic action button appears here -->
-            </div>
 
-          <div id="action_btn">
-		<!-- dynamic action button appears here -->
-	        </div>
                           <script src="assets/js/common-scripts.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
 
