@@ -147,6 +147,8 @@ function displaySession(sessionObj, sessionKey) {
 
 	let courseName = sessionObj.course
 	h.textContent = courseName
+    courseName.toUpperCase()
+
 	card.appendChild(h)
 
 
