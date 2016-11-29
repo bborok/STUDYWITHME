@@ -122,15 +122,6 @@
 
                   </li>
 
-
-                  <li class="sub-menu">
-                      <a href = "">
-                          <i class="fa fa-user"></i>
-                          <span>Messenger</span>
-                      </a>
-
-                  </li>
-
                   <li class="sub-menu">
                       <a href ="main.html">
                           <i class="fa fa-user"></i>
@@ -142,27 +133,40 @@
               </ul>
               <!-- sidebar menu end-->
           </div>
-      </aside>
-      <section id="main-content">
+      </aside>    
+    
+    
+    
+    
+    <section id="main-content">
           <section class="wrapper">
             <div class="row">
-                <div class="col-lg-9 main-chart">
-									<div id="main_container">
-										<!-- dynamic content from firebase here -->
-									</div>
 
-									<button id="back_to_profile_btn" type="button">view profile</button>
+                  <div class="col-lg-12 ds">
+				 <h3>Your Joined Sessions</h3><br>
+                      
+                <h4><i class="fa fa-angle-right" style="font-size:40px"></i> ISSUE: its supposed to be single button for each attribute but idonknow how to iterate</h4>
+                <button type="button" class="btn btn-primary btn-lg btn-block">Test</button>
 
+                <button type="button" class="btn btn-primary btn-lg btn-block" id="main_container"></button>
+
+                      <h2><i id="main_container"></i></h2>
+                
+<!--                    <button id="back_to_profile_btn" type="button">view profile</button>     -->
+
+
+
+
+                     <hr>
                 </div>
-              </div>
-                      <script src="assets/js/common-scripts.js"></script>
+              
+              <script src="assets/js/common-scripts.js"></script>
 
 							<script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
 					    <script type="text/javascript" src="joinedSessions.js"></script>
 					    <!-- <script type="text/javascript" src="index.js"></script> -->
 						</section>
 				  </section>
-				</section>
 
 
 </body>
