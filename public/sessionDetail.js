@@ -198,7 +198,6 @@ function setupActionButton(sessionObj) {
 		} else {
 			// console.log("INFO: not joined")
 			let btnContainer = document.getElementById('action_btn')
-
 			let btn = document.createElement('button')
 			let txt = document.createTextNode("Join Session")
 			btn.appendChild(txt)

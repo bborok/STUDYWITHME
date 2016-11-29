@@ -27,9 +27,27 @@ function initApp() {
 	document.getElementById('pending_sessions_btn').addEventListener('click', gotoPendingSessionsPage, false);
 	document.getElementById('joined_sessions_btn').addEventListener('click', gotoJoinedSessionsPage, false);
 	document.getElementById('hosting_sessions_btn').addEventListener('click', gotoHostingSessionsPage, false);
-	document.getElementById('edit_profile_btn').addEventListener('click', gotoEditProfilePage, false);
 	document.getElementById('edit_password_btn').addEventListener('click', gotoEditPasswordPage, false);
 
+}
+
+function isMatchingPasswords(password1, password2) {
+	return (password1 == null || password2 == null || password1 != password2) ? false : true
+}
+
+
+function editPassword() {
+  let password1 = document.getElementById('password1').value
+  let password2 = document.getElementById('password2').value
+  if (isMatchingPasswords(password1, password2) == false) {
+    alert("Please ensure the passwords match")
+    return
+  }
+  let user = firebase.auth().currentUser;
+
+  user.updatePassword(password1).then(function() {
+    window.location = "main.html"
+  });
 }
 
 function setupView() {
@@ -61,6 +79,8 @@ function setupView() {
 
 }
 
+
+
 function signOutUser() {
     console.log("[event] Did click on sign out btn")
     firebase.auth().signOut().then(function() {
@@ -76,9 +96,6 @@ function gotoDiscoverSessionsPage() {
 
 function gotoEditProfilePage() {
 	window.location = "editProfile.html"
-}
-function gotoEditPasswordPage() {
-	window.location = "editPassword.html"
 }
 function gotoCreateSessionPage() {
 	window.location = "createSession.html"

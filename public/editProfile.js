@@ -98,7 +98,7 @@ function setupViews() {
     document.getElementById("major").value = snapshot.child("major").val();
     document.getElementById("email").value = snapshot.child("email").val();
     document.getElementById("year").value = snapshot.child("school_year").val();
-    // document.getElementById("profileImageEdit").value = snapshot.child("profile_image_url").val();
+    document.getElementById("profileImageEdit").value = snapshot.child("profile_image_url").val();
   });
 
 }
@@ -137,6 +137,8 @@ function saveUserData(uid, name, fileArray, major, year, email) {
 
 function saveUserOtherData(uid, name, profile_image_url, major, year, email) {
 
+  var user = firebase.auth().currentUser;
+
 	let setPromise = firebase.database().ref('users/' + uid + '/metadata').set({
 		name: name,
 		profile_image_url : profile_image_url,
@@ -145,6 +147,7 @@ function saveUserOtherData(uid, name, profile_image_url, major, year, email) {
 		email: email,
 	});
 
+  user.updateEmail(email);
 	setPromise.then(function() {
 		console.log("saved user data")
 		window.location = 'main.html'
