@@ -3,8 +3,18 @@
 [debug] CLI Version:  3.0.8
 [debug] Platform:     darwin
 [debug] Node Version: v4.6.0
-[debug] Time:         Tue Nov 29 2016 14:37:54 GMT-0800 (PST)
+[debug] Time:         Tue Nov 29 2016 15:19:19 GMT-0800 (PST)
 [debug] ----------------------------------------------------------------------
 [debug] 
 [debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
 [debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/studywitme-f268e 
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/studywitme-f268e/tokens 
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'studywitme-f268e'...
+[info] 
+[info] i  deploying database, hosting
+[info] ✔  database: rules ready to deploy.
+[info] i  hosting: preparing public directory for upload...
+[debug] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/studywitme-f268e/uploads/-KXmNezUYZOfjVnzr13b?fileCount=136&message= 

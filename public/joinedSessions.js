@@ -20,9 +20,9 @@ function initApp() {
 			window.location= 'login.html'
 		}
 	})
-
-	document.getElementById('back_to_profile_btn').addEventListener('click', gotoProfile, false);
+    
 	document.getElementById('signout_btn').addEventListener('click', signOutUser, false);
+	document.getElementById('back_to_profile_btn').addEventListener('click', gotoProfile, false);
 	document.getElementById('discover_sessions_btn').addEventListener('click', gotoDiscoverSessionsPage, false);
 	document.getElementById('create_session_btn').addEventListener('click', gotoCreateSessionPage, false);
 	document.getElementById('pending_sessions_btn').addEventListener('click', gotoPendingSessionsPage, false);
