@@ -6,6 +6,7 @@ var pckry = new Packery('.grid', {
   percentPosition: true
 })
 
+// Initialize Firebase
 var config = {
 	apiKey: "AIzaSyCCcJUaBLram1g9zoqTUVkK9K-iHyv4V-A",
 	authDomain: "studywitme-f268e.firebaseapp.com",
@@ -13,9 +14,7 @@ var config = {
 	storageBucket: "studywitme-f268e.appspot.com",
 	messagingSenderId: "1009156773779"
 };
-
 firebase.initializeApp(config);
-
 var gQuery = firebase.database().ref()
 
 function initApp() {
@@ -24,26 +23,28 @@ function initApp() {
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
 			console.log("user: " + user.uid + " isAnonymous: " + user.isAnonymous)
-			setupViews()
-      filterSessions()
+			setupView()
+			filterSessions()
 		} else {
 			console.log("signed out")
-      signInAnonymously()
-			// window.location = "main.html" ?
+			window.location = 'login.html'
 		}
 	})
-	// document.getElementById('view_profile_btn').addEventListener('click', gotoProfilePage, false);
+
+	document.getElementById('back_to_profile_btn').addEventListener('click', gotoProfile, false);
 	document.getElementById('signout_btn').addEventListener('click', signOutUser, false);
 	document.getElementById('discover_sessions_btn').addEventListener('click', gotoDiscoverSessionsPage, false);
 	document.getElementById('create_session_btn').addEventListener('click', gotoCreateSessionPage, false);
+	document.getElementById('pending_sessions_btn').addEventListener('click', gotoPendingSessionsPage, false);
 	document.getElementById('joined_sessions_btn').addEventListener('click', gotoJoinedSessionsPage, false);
 	document.getElementById('hosting_sessions_btn').addEventListener('click', gotoHostingSessionsPage, false);
-  document.getElementById('filterBtn').addEventListener('click', filterSessions, false);
+	document.getElementById('filterBtn').addEventListener('click', filterSessions, false);
 
 }
 
-function setupViews() {
-  let user = firebase.auth().currentUser;
+function setupView() {
+
+	let user = firebase.auth().currentUser;
 
 	if (user != null) {
 		var userRef = firebase.database().ref('users/' + user.uid + '/metadata');
@@ -69,19 +70,56 @@ function setupViews() {
 		});
 	}
 
+	// var sessionsRef = firebase.database().ref('sessions');
+	//
+	// sessionsRef.on('child_added', function(data) {
+	// 	// console.log(data.val())
+	// 	let dict = data.val()
+	// 	let sessionObj = dict["metadata"]
+	// 	// console.log(sessionObj)
+	// 	displaySession(sessionObj, data.key)
+	// 	// setupView()
+	// });
+	//
+	// sessionsRef.on('child_removed', function(data) {
+	// 	removeSession(data.key)
+	// })
+
 }
 
-// handles anonymous signin
-function signInAnonymously() {
-	console.log("Did click on anonymous sign in")
-	firebase.auth().signInAnonymously().catch(function(error) {
-		// Handle Errors here.
-		var errorCode = error.code;
-		var errorMessage = error.message;
-		console.log(error);
-		alert(errorMessage);
+function signOutUser() {
+    console.log("[event] Did click on sign out btn")
+    firebase.auth().signOut().then(function() {
+	  	console.log('Signed Out');
+	}, function(error) {
+	  	console.error('Sign Out Error', error);
 	});
 }
+
+function gotoDiscoverSessionsPage() {
+	window.location = "viewSessions.html"
+}
+
+function gotoCreateSessionPage() {
+	window.location = "createSession.html"
+}
+
+function gotoPendingSessionsPage() {
+	alert("comming soon...")
+	// window.location = "hostingSessions.html"
+}
+
+function gotoJoinedSessionsPage() {
+	window.location = "joinedSessions.html"
+}
+
+function gotoHostingSessionsPage() {
+	window.location = "hostingSessions.html"
+}
+
+window.addEventListener('load', function() {
+    initApp()
+});
 
 function displaySession(sessionObj, sessionKey)
 {
@@ -112,10 +150,6 @@ function displaySession(sessionObj, sessionKey)
   pckry.appended(sessionCard);
   pckry.layout()
 }
-
-window.addEventListener('load', function() {
-    initApp()
-});
 
 function showLoader() {
   document.getElementById("loadingIndicator").style.display = "block"
@@ -204,36 +238,18 @@ String.prototype.capitalizeFirstLetter = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
-function gotoProfilePage() {
-    window.location = "main.html";
+
+function removeSession(sessionKey) {
+	let sessionCard = document.querySelector('[data-session-id='+sessionKey+']')
+	// console.log(sessionCard)
+	if (sessionCard == null || sessionCard == undefined) {
+		console.log("ERROR: cannot find DOM element with data-session-id: " + sessionKey)
+	} else {
+		sessionCard.parentNode.removeChild(sessionCard)
+		console.log("INFO: card with session-id: " + sessionKey + " deleted")
+	}
 }
 
-function signOutUser() {
-    console.log("[event] Did click on sign out btn")
-    firebase.auth().signOut().then(function() {
-	  	console.log('Signed Out');
-	}, function(error) {
-	  	console.error('Sign Out Error', error);
-	});
-}
-
-function gotoDiscoverSessionsPage() {
-	window.location = "viewSessions.html"
-}
-
-function gotoCreateSessionPage() {
-	window.location = "createSession.html"
-}
-
-function gotoPendingSessionsPage() {
-	alert("comming soon...")
-	// window.location = "hostingSessions.html"
-}
-
-function gotoJoinedSessionsPage() {
-	window.location = "joinedSessions.html"
-}
-
-function gotoHostingSessionsPage() {
-	window.location = "hostingSessions.html"
+function gotoProfile() {
+	window.location = "main.html"
 }

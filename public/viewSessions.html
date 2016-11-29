@@ -11,6 +11,8 @@
 		}
 	</style>
 	<link rel = "stylesheet" href = "indexStyle.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 	<link href="assets/css/bootstrap.css" rel="stylesheet">
 	<!--external css-->
 	<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -267,14 +269,6 @@ color: #ccc;
 		touch-action: manipulation;
 }
 
-.grid-item h4 {
-		font-size: 24px;
-		padding-top: 60px;
-}
-
-.grid {width:100%; /*background:yellow;*/ text-align: center;}
-.grid-sizer, .grid-item { width: 100%; height: 150px; background: #ffd777;}
-.gutter-sizer { width: 10%; }
 /*.grid-item div {width:100%, height: 100%;}*/
 
 
@@ -423,24 +417,82 @@ color: #ccc;
             <div id="content-window">
 
                   <div class="col-lg-12 ds">
-				    <h3>Discover</h3>
-                <div class="grid">
+				    			<!-- <h3>Discover</h3>
+	                <div class="grid">
                     <div class="gutter-sizer"></div>
 
-                        <div id="main_container" style="padding-left:0px">
-                        </div>
-                </div>
-            </div>
-</div>
-            <script src="assets/js/common-scripts.js"></script>
+                      <div id="main_container" style="padding-left:0px">
+                      </div>
+		                </div> -->
+										<div class="row" id="formRow">
+									  <div class="col-sm-8 centered3" id="formCol">
 
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
-					<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
-					<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+									    <form>
+									      <div class="form-group row">
+									        <label for="courseInput" class="col-form-label col-sm-4 text-right">Filter by course</label>
+									        <div class="col-sm-8">
+									          <input class="form-control" type="text" id="courseInput" placeholder="e.g. psyc or psyc 101">
+									        </div>
+									      </div>
+
+									      <div class="form-group row">
+									        <label for="campusInput" class="col-form-label col-sm-4">Filter by campus</label>
+									        <div class="col-sm-8">
+									          <select name="" id="campusInput" class="form-control">
+									            <option value="all">All</option>
+									            <option value="burnaby">Burnaby</option>
+									            <option value="surrey">Surrey</option>
+									            <option value="vancouver">Vancouver</option>
+									          </select>
+									        </div>
+									      </div>
+
+									      <div class="row">
+									        <div class="offset-sm-4 col-sm-8">
+									            <button type="button" class="btn btn-primary btn-block" id="filterBtn">Filter Sessions</button>
+									        </div>
+									      </div>
+									    </form>
+
+									  </div>
+									</div>
+
+									<div id="loadingIndicator" class="modal">
+									  <div class="spinner centervh"></div>
+									</div>
+
+									<div id="gridContainer">
+									  <div class="grid" id="sessionGrid">
+									    <div class="grid-sizer" style="visibility: hidden; position: absolute;"></div>
+									    <div class="gutter-sizer" style="visibility: hidden; position: absolute;"></div>
+									    <!-- dynamically generated content: uncomment when debugging UI only
+									    <div class="grid-item">
+									      <h4 class="centervh">CMPT 128</h4>
+									    </div>
+									    <div class="grid-item">
+									      <h4 class="centervh">Math 151</h4>
+									    </div>
+									    <div class="grid-item">
+									      <h4 class="centervh">PSYC 109</h4>
+									    </div>
+									    <div class="grid-item">
+									      <h4 class="centervh">IAT 100</h4>
+									    </div>
+									    -->
+									  </div>
+									</div>
+			            </div>
+								</div>
+            	<script src="assets/js/common-scripts.js"></script>
+
+							<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+						<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
 				    <script src="https://unpkg.com/packery@2.1/dist/packery.pkgd.min.js"></script>
+						<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js'></script>
 						<script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
 						<script type="text/javascript" src="viewSessions.js"></script>
-				<script>
+				<!-- <script>
 
 
 				    $('.grid').packery({
@@ -451,6 +503,6 @@ color: #ccc;
 				        percentPosition: true
 				        // gutter: 2%
 				    });
-				    </script>
+				    </script> -->
 </body>
 </html>

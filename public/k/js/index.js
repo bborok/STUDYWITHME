@@ -24,50 +24,14 @@ function initApp() {
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
 			console.log("user: " + user.uid + " isAnonymous: " + user.isAnonymous)
-			setupViews()
       filterSessions()
 		} else {
 			console.log("signed out")
       signInAnonymously()
-			// window.location = "main.html" ?
 		}
 	})
-	// document.getElementById('view_profile_btn').addEventListener('click', gotoProfilePage, false);
-	document.getElementById('signout_btn').addEventListener('click', signOutUser, false);
-	document.getElementById('discover_sessions_btn').addEventListener('click', gotoDiscoverSessionsPage, false);
-	document.getElementById('create_session_btn').addEventListener('click', gotoCreateSessionPage, false);
-	document.getElementById('joined_sessions_btn').addEventListener('click', gotoJoinedSessionsPage, false);
-	document.getElementById('hosting_sessions_btn').addEventListener('click', gotoHostingSessionsPage, false);
+
   document.getElementById('filterBtn').addEventListener('click', filterSessions, false);
-
-}
-
-function setupViews() {
-  let user = firebase.auth().currentUser;
-
-	if (user != null) {
-		var userRef = firebase.database().ref('users/' + user.uid + '/metadata');
-
-		userRef.on('value', function(snapshot) {
-			// console.log(snapshot.val())
-			let dict = snapshot.val()
-
-			let imageView = document.getElementById('image')
-			let nameView = document.getElementById('name')
-			let majorView = document.getElementById('major')
-			let yearView = document.getElementById('year')
-			let emailView = document.getElementById('email')
-			let statusView = document.getElementById('status')
-
-			imageView.src = (dict["profile_image_url"] == "") ? "DEFAULT_PROFILE_IMAGE.png" : dict["profile_image_url"]
-			nameView.textContent = dict["name"]
-
-			majorView.textContent = dict["major"]
-			yearView.textContent = dict["school_year"]
-			emailView.innerHTML = dict["email"]
-			statusView.innerHTML = user.isAnonymous ? "Anonymous" : "Regular"
-		});
-	}
 
 }
 
@@ -102,7 +66,6 @@ function displaySession(sessionObj, sessionKey)
   sessionCard.setAttribute('class', 'grid-item')
 	sessionCard.addEventListener('click', function() {
 		localStorage['selected_session'] = sessionKey
-		window.location = "sessionDetail.html"
     // choices:
     // a) show modal window with session details
 		// b) window.location = "sessionDetail.html"
@@ -202,38 +165,4 @@ function getDateStringFromTimestamp(timestamp) {
 
 String.prototype.capitalizeFirstLetter = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
-}
-
-function gotoProfilePage() {
-    window.location = "main.html";
-}
-
-function signOutUser() {
-    console.log("[event] Did click on sign out btn")
-    firebase.auth().signOut().then(function() {
-	  	console.log('Signed Out');
-	}, function(error) {
-	  	console.error('Sign Out Error', error);
-	});
-}
-
-function gotoDiscoverSessionsPage() {
-	window.location = "viewSessions.html"
-}
-
-function gotoCreateSessionPage() {
-	window.location = "createSession.html"
-}
-
-function gotoPendingSessionsPage() {
-	alert("comming soon...")
-	// window.location = "hostingSessions.html"
-}
-
-function gotoJoinedSessionsPage() {
-	window.location = "joinedSessions.html"
-}
-
-function gotoHostingSessionsPage() {
-	window.location = "hostingSessions.html"
 }
