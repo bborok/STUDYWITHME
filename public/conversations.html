@@ -13,10 +13,6 @@
     <script src="https://cdn.firebase.com/js/simple-login/1.6.4/firebase-simple-login.js"></script>
     <script type="text/javascript" src="controllers/conversationController.js"></script>
 
-
-
-
-
     <link rel = "stylesheet" href = "assets/css/indexStyle.css">
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
@@ -47,7 +43,7 @@
     <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
-    
+
 </head>
 
 <body>
@@ -144,6 +140,7 @@
           <section class="wrapper">
             <div class="row">
                 <div class="col-lg-9 main-chart">
+
                   <div ng-controller="ConversationController">
 
                       <ul ng-hide="displayChat" id="conversations">
@@ -152,7 +149,6 @@
                               <div id="block">
                               <a ng-click="openChat(session.key)" href="#chat">
                                   {{session.courseCode}}
-                                  <strong style="color: red">{{session.unreadMessages}}</strong>
                               </a>
                               </div>
                           </li>
