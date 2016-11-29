@@ -27,6 +27,8 @@ function initApp() {
 	document.getElementById('pending_sessions_btn').addEventListener('click', gotoPendingSessionsPage, false);
 	document.getElementById('joined_sessions_btn').addEventListener('click', gotoJoinedSessionsPage, false);
 	document.getElementById('hosting_sessions_btn').addEventListener('click', gotoHostingSessionsPage, false);
+	document.getElementById('edit_profile_btn').addEventListener('click', gotoEditProfilePage, false);
+
 }
 
 function setupView() {
@@ -71,6 +73,9 @@ function gotoDiscoverSessionsPage() {
 	window.location = "viewSessions.html"
 }
 
+function gotoEditProfilePage() {
+	window.location = "editProfile.html"
+}
 function gotoCreateSessionPage() {
 	window.location = "createSession.html"
 }
