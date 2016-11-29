@@ -17,6 +17,8 @@ function initApp() {
 		    setupViews();
 		} else {
 		    console.log("signed out");
+            window.location = 'login.html'
+
 		}
 	});
 
