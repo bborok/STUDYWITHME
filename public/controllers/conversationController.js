@@ -5,17 +5,6 @@ angular.module("StudyWitMe", ['firebase', 'ngRoute'])
     .factory('shareConversation', function () {
         return {id: 'DEFAULT'};
     })
-    // .config(['$routeProvider', function ($routeProvider) {
-    //     $routeProvider.when('/conversation', {
-    //         templateUrl: '/public/assets/templates/conversations.html'
-    //     }).when('/chat', {
-    //         templateUrl: '/public/assets/templates/chat.html'
-    //     })
-    //     .otherwise({
-    //          redirectTo: '/conversations'
-    //     });
-    // }
-    // ])
     .controller("ConversationController", function ($scope, $firebase, shareConversation, FB_URL) {
         $scope.displayChat = false;
         $scope.dbSession = $firebase(new Firebase(FB_URL + "sessions"));

@@ -1,4 +1,5 @@
-angular.module("StudyWitMe")
+angular.module("SessionCreator", ['firebase'])
+    .constant("FB_URL", 'https://studywitme-f268e.firebaseio.com/')
     .controller("CreateController", function ($scope, $firebase, FB_URL) {
         $scope.db = $firebase(new Firebase(FB_URL + "/sessions"));
         $scope.dbConvers = $firebase(new Firebase(FB_URL + "/conversations"));

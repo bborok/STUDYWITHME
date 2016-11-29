@@ -2,43 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cf2e43d-7eaf-49c8-af8e-8d3d1462548b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/style-responsive.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/table-responsive.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/to-do.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/zabuto_calendar.css" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app.js" afterPath="$PROJECT_DIR$/public/assets/js/app.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/createAccount.js" afterPath="$PROJECT_DIR$/public/assets/js/createAccount.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/createSession.js" afterPath="$PROJECT_DIR$/public/assets/js/createSession.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/discoverStyle.css" afterPath="$PROJECT_DIR$/public/assets/css/discoverStyle.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/editPassword.js" afterPath="$PROJECT_DIR$/public/assets/js/editPassword.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/editProfile.js" afterPath="$PROJECT_DIR$/public/assets/js/editProfile.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/editSession.js" afterPath="$PROJECT_DIR$/public/assets/js/editSession.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/hostingSessions.js" afterPath="$PROJECT_DIR$/public/assets/js/hostingSessions.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/index.js" afterPath="$PROJECT_DIR$/public/assets/js/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/indexStyle.css" afterPath="$PROJECT_DIR$/public/assets/css/indexStyle.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/joinedSessions.js" afterPath="$PROJECT_DIR$/public/assets/js/joinedSessions.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/jquery.timepicker.css" afterPath="$PROJECT_DIR$/public/assets/css/jquery.timepicker.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/main.js" afterPath="$PROJECT_DIR$/public/assets/js/main.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/services.js" afterPath="$PROJECT_DIR$/public/assets/js/services.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/sessionDetail.js" afterPath="$PROJECT_DIR$/public/assets/js/sessionDetail.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/snippet.js" afterPath="$PROJECT_DIR$/public/assets/js/snippet.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/viewSessions.js" afterPath="$PROJECT_DIR$/public/assets/js/viewSessions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style-responsive.css" afterPath="$PROJECT_DIR$/public/assets/css/style-responsive.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/conversationController.js" afterPath="$PROJECT_DIR$/public/controllers/conversationController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/conversations.html" afterPath="$PROJECT_DIR$/public/conversations.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/createAccount.html" afterPath="$PROJECT_DIR$/public/createAccount.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/createSession.html" afterPath="$PROJECT_DIR$/public/createSession.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/editPassword.html" afterPath="$PROJECT_DIR$/public/editPassword.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/editProfile.html" afterPath="$PROJECT_DIR$/public/editProfile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/editSession.html" afterPath="$PROJECT_DIR$/public/editSession.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/hostingSessions.html" afterPath="$PROJECT_DIR$/public/hostingSessions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/joinedSessions.html" afterPath="$PROJECT_DIR$/public/joinedSessions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/login.html" afterPath="$PROJECT_DIR$/public/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/main.html" afterPath="$PROJECT_DIR$/public/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/sessionDetail.html" afterPath="$PROJECT_DIR$/public/sessionDetail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/viewSessions.html" afterPath="$PROJECT_DIR$/public/viewSessions.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/createSessionCotnroller.js" afterPath="$PROJECT_DIR$/public/controllers/createSessionCotnroller.js" />
     </list>
     <ignored path="studywitme.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,12 +27,12 @@
     <favorites_list name="studywitme" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="conversations.html" pinned="false" current-in-tab="true">
+    <leaf>
+      <file leaf-file-name="conversations.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/conversations.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="46" column="99" selection-start-line="46" selection-start-column="99" selection-end-line="46" selection-end-column="99" />
+            <state relative-caret-position="-45">
+              <caret line="138" column="11" selection-start-line="138" selection-start-column="11" selection-end-line="138" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -74,8 +41,18 @@
       <file leaf-file-name="conversationController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/controllers/conversationController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="26" />
+            <state relative-caret-position="60">
+              <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="createSessionCotnroller.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/controllers/createSessionCotnroller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="65" selection-start-line="1" selection-start-column="65" selection-end-line="1" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -130,8 +107,9 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/public/controllers/conversationController.js" />
         <option value="$PROJECT_DIR$/public/conversations.html" />
+        <option value="$PROJECT_DIR$/public/controllers/conversationController.js" />
+        <option value="$PROJECT_DIR$/public/controllers/createSessionCotnroller.js" />
       </list>
     </option>
   </component>
@@ -170,7 +148,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -231,61 +208,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="studywitme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="studywitme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="studywitme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="studywitme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="font-awesome" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files" />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -296,6 +228,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../AngularTut" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="ignore_missing_gitignore" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -391,11 +324,13 @@
       <workItem from="1480103003769" duration="1341000" />
       <workItem from="1480113651231" duration="2701000" />
       <workItem from="1480453836164" duration="2222000" />
+      <workItem from="1480461237955" duration="85000" />
+      <workItem from="1480461325455" duration="335000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145418000" />
+    <option name="totallyTimeSpent" value="145838000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="743" extended-state="1" />
@@ -405,18 +340,18 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13210446" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,7 +375,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demo_test.asp" />
     <entry file="file://$PROJECT_DIR$/Discovery.css" />
     <entry file="file://$PROJECT_DIR$/Mustache Samples_files/mustache.js" />
     <entry file="file://$PROJECT_DIR$/mustache.js-master/bin/mustache" />
@@ -468,27 +402,9 @@
     <entry file="file://$PROJECT_DIR$/angularFireApp/app.js" />
     <entry file="file://$PROJECT_DIR$/angularFireApp/app.html" />
     <entry file="file://$PROJECT_DIR$/jQUERY_trial/jQuery_Discovery.js" />
-    <entry file="file://$PROJECT_DIR$/assets/templates/manageSession.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/templates/sessionTemplate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/templates/searchSession.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/templates/manageSession.html" />
+    <entry file="file://$PROJECT_DIR$/assets/templates/sessionTemplate.html" />
+    <entry file="file://$PROJECT_DIR$/assets/templates/searchSession.html" />
     <entry file="file://$PROJECT_DIR$/assets/login.html" />
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/block.rnc">
       <provider selected="true" editor-type-id="text-editor">
@@ -501,97 +417,21 @@
     <entry file="file://$USER_HOME$/chat/friendlychat-master/friendlychat-master/web-start/index.html" />
     <entry file="file://$PROJECT_DIR$/db.js" />
     <entry file="file://$PROJECT_DIR$/assets/css/date.js" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/loginController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/templates/newSession.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="36" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/createSessionCotnroller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/conversationController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/templates/conversations.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/templates/chat.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="52" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/togglingBar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/messageController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore" />
+    <entry file="file://$PROJECT_DIR$/assets/css/main.css" />
+    <entry file="file://$PROJECT_DIR$/controllers/loginController.js" />
+    <entry file="file://$PROJECT_DIR$/assets/templates/newSession.html" />
+    <entry file="file://$PROJECT_DIR$/controllers/createSessionCotnroller.js" />
+    <entry file="file://$PROJECT_DIR$/controllers/conversationController.js" />
+    <entry file="file://$PROJECT_DIR$/assets/templates/conversations.html" />
+    <entry file="file://$PROJECT_DIR$/assets/templates/chat.html" />
+    <entry file="file://$PROJECT_DIR$/assets/togglingBar.js" />
+    <entry file="file://$PROJECT_DIR$/services.js" />
+    <entry file="file://$PROJECT_DIR$/controllers/messageController.js" />
     <entry file="file://$PROJECT_DIR$/public/assets/css/table-responsive.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -599,7 +439,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1800">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -607,7 +446,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2276">
           <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -615,7 +453,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -623,7 +460,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -635,34 +471,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/app.js" />
+    <entry file="file://$PROJECT_DIR$/public/assets/templates/conversations.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="40" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="40" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/conversations.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="138" column="11" selection-start-line="138" selection-start-column="11" selection-end-line="138" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/conversationController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="26" />
+        <state relative-caret-position="60">
+          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/templates/conversations.html">
+    <entry file="file://$PROJECT_DIR$/public/controllers/createSessionCotnroller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/conversations.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="46" column="99" selection-start-line="46" selection-start-column="99" selection-end-line="46" selection-end-column="99" />
+        <state relative-caret-position="15">
+          <caret line="1" column="65" selection-start-line="1" selection-start-column="65" selection-end-line="1" selection-end-column="65" />
           <folding />
         </state>
       </provider>
