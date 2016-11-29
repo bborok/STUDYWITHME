@@ -86,7 +86,7 @@ function gotoHostingSessionsPage() {
 
 function createSession() {
 
-    var course = document.getElementById('inputCourse').value.toUpperCase();
+    var course = document.getElementById('inputCourse').value.toLowerCase();
 
     //should be handled more elegantly
     if (course.length < 4){
@@ -98,10 +98,10 @@ function createSession() {
     let startDate = document.getElementById('inputStartDate').value;
     let startTime = document.getElementById('inputStartTime').value;
     let fullStartDate = function() {
-	let dateStr = startDate + " " + startTime;
-	let date = new Date(dateStr);
-	return date;
-    }();
+		let dateStr = startDate + " " + startTime;
+		let date = new Date(dateStr);
+		return date;
+	    }();
     let startTimestamp = fullStartDate.getTime();
     let duration = document.getElementById('inputDuration').value;
     let endTimestamp = startTimestamp + (duration * 3600 * 1000);

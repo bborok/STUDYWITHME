@@ -135,7 +135,7 @@ function displaySession(sessionObj, sessionKey) {
 	//
 	// let cardGutter = document.createElement("div")
 	// cardGutter.className = "gutter-sizer"
-    
+
 	let container = document.getElementById("main_container")
 
 	// container.appendChild(cardSizer)
@@ -146,8 +146,8 @@ function displaySession(sessionObj, sessionKey) {
 	let h = document.createElement("h4")
 
 	let courseName = sessionObj.course
-	h.textContent = courseName
-    courseName.toUpperCase()
+	h.textContent = courseName.toLowerCase()
+
 
 	card.appendChild(h)
 
