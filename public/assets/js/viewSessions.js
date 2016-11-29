@@ -102,7 +102,7 @@ function displaySession(sessionObj, sessionKey)
   sessionCard.setAttribute('class', 'grid-item')
 	sessionCard.addEventListener('click', function() {
 		localStorage['selected_session'] = sessionKey
-		window.location = "sessionDetail.html"
+		window.location = "../../sessionDetail.html"
     // choices:
     // a) show modal window with session details
 		// b) window.location = "sessionDetail.html"
@@ -205,7 +205,7 @@ String.prototype.capitalizeFirstLetter = function() {
 }
 
 function gotoProfilePage() {
-    window.location = "main.html";
+    window.location = "../../main.html";
 }
 
 function signOutUser() {
@@ -218,11 +218,11 @@ function signOutUser() {
 }
 
 function gotoDiscoverSessionsPage() {
-	window.location = "viewSessions.html"
+	window.location = "../../viewSessions.html"
 }
 
 function gotoCreateSessionPage() {
-	window.location = "createSession.html"
+	window.location = "../../createSession.html"
 }
 
 function gotoPendingSessionsPage() {
@@ -231,9 +231,9 @@ function gotoPendingSessionsPage() {
 }
 
 function gotoJoinedSessionsPage() {
-	window.location = "joinedSessions.html"
+	window.location = "../../joinedSessions.html"
 }
 
 function gotoHostingSessionsPage() {
-	window.location = "hostingSessions.html"
+	window.location = "../../hostingSessions.html"
 }

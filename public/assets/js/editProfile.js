@@ -42,14 +42,14 @@ function signOutUser() {
 }
 
 function gotoDiscoverSessionsPage() {
-	window.location = "viewSessions.html"
+	window.location = "../../viewSessions.html"
 }
 
 function gotoEditProfilePage() {
-	window.location = "editProfile.html"
+	window.location = "../../editProfile.html"
 }
 function gotoCreateSessionPage() {
-	window.location = "createSession.html"
+	window.location = "../../createSession.html"
 }
 
 function gotoPendingSessionsPage() {
@@ -58,11 +58,11 @@ function gotoPendingSessionsPage() {
 }
 
 function gotoJoinedSessionsPage() {
-	window.location = "joinedSessions.html"
+	window.location = "../../joinedSessions.html"
 }
 
 function gotoHostingSessionsPage() {
-	window.location = "hostingSessions.html"
+	window.location = "../../hostingSessions.html"
 }
 
 function setupViews() {
@@ -150,7 +150,7 @@ function saveUserOtherData(uid, name, profile_image_url, major, year, email) {
   user.updateEmail(email);
 	setPromise.then(function() {
 		console.log("saved user data")
-		window.location = 'main.html'
+		window.location = '../../main.html'
 	}, function(error) {
 		console.log(error)
 	})

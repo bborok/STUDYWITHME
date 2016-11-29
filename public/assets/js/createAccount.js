@@ -57,7 +57,7 @@ function saveUserOtherData(uid, name, profile_image_url, major, year, email) {
 
 	setPromise.then(function() {
 		console.log("saved user data")
-		window.location = 'main.html'
+		window.location = '../../main.html'
 	}, function(error) {
 		console.log(error)
 	})
@@ -117,7 +117,7 @@ function isMatchingPasswords(password1, password2) {
 }
 
 function backToSignin() {
-	window.location = "login.html"
+	window.location = "../../login.html"
 }
 
 window.addEventListener('load', function() {

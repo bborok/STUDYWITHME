@@ -9,7 +9,7 @@ var config = {
 firebase.initializeApp(config);
 
 function initApp() {
-	console.log("Joined sessions page")
+	console.log("view sessions page")
 
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
@@ -17,7 +17,8 @@ function initApp() {
 			setupView()
 		} else {
 			console.log("signed out")
-			window.location= 'login.html'
+			window.location = '../../login.html'
+
 		}
 	})
 
@@ -31,10 +32,10 @@ function initApp() {
 }
 
 function setupView() {
-	let user = firebase.auth().currentUser
-	var joinedSessionsRef = firebase.database().ref('users/'+user.uid+'/joined_sessions');
 
+	let user = firebase.auth().currentUser;
 	if (user != null) {
+
 		var userRef = firebase.database().ref('users/' + user.uid + '/metadata');
 
 		userRef.on('value', function(snapshot) {
@@ -55,22 +56,20 @@ function setupView() {
 			emailView.innerHTML = dict["email"]
 			statusView.innerHTML = user.isAnonymous ? "Anonymous" : "Regular"
 		});
-	}
+		var hostingSessionsRef = firebase.database().ref().child('users').child(user.uid).child('hosting_sessions');
 
-	joinedSessionsRef.on('child_added', function(data) {
-		// console.log(data.val())
-		if (data.exists()) {
-			let sessionRef = firebase.database().ref('sessions/'+data.key+'/metadata')
+		hostingSessionsRef.on('child_added', function(data) {
+			// console.log(data.key)
+			let sessionRef = firebase.database().ref('sessions').child(data.key).child('metadata');
 			sessionRef.once('value', function(snapshot) {
-				let sessionObj = snapshot.val()
-				displaySession(sessionObj, data.key)
+				// console.log(snapshot.val())
+				let dict = snapshot.val()
+				// console.log(dict)
+				let tableBody = document.getElementById("tableBody")
+				addRow(tableBody, dict['course'], dict['campus'], dict['description'])
 			})
-		}
-	});
-
-	joinedSessionsRef.on('child_removed', function(data) {
-		removeSession(data.key)
-	})
+		});
+	}
 }
 
 function signOutUser() {
@@ -83,11 +82,11 @@ function signOutUser() {
 }
 
 function gotoDiscoverSessionsPage() {
-	window.location = "viewSessions.html"
+	window.location = "../../viewSessions.html"
 }
 
 function gotoCreateSessionPage() {
-	window.location = "createSession.html"
+	window.location = "../../createSession.html"
 }
 
 function gotoPendingSessionsPage() {
@@ -96,44 +95,34 @@ function gotoPendingSessionsPage() {
 }
 
 function gotoJoinedSessionsPage() {
-	window.location = "joinedSessions.html"
+	window.location = "../../joinedSessions.html"
 }
 
 function gotoHostingSessionsPage() {
-	window.location = "hostingSessions.html"
+	window.location = "../../hostingSessions.html"
 }
 
-function displaySession(sessionObj, sessionKey)
+
+function addRow(tableBody, col1val, col2val, col3val)
 {
-	let container = document.getElementById("main_container")
-
-	let card = document.createElement("div")
-
-	let courseName = document.createTextNode(sessionObj.course)
-	card.appendChild(courseName)
-
-	card.setAttribute('data-session-id', sessionKey)
-	card.addEventListener('click', function() {
-		localStorage['selected_session'] = sessionKey
-		window.location = "sessionDetail.html"
-	}, false)
-
-	container.appendChild(card)
-}
-
-function removeSession(sessionKey) {
-	let sessionCard = document.querySelector('[data-session-id='+sessionKey+']')
-	// console.log(sessionCard)
-	if (sessionCard == null || sessionCard == undefined) {
-		console.log("ERROR: cannot find DOM element with data-session-id: " + sessionKey)
-	} else {
-		sessionCard.parentNode.removeChild(sessionCard)
-		console.log("INFO: card with session-id: " + sessionKey + " deleted")
-	}
+	let row = document.createElement("tr");
+	let cell1 = document.createElement("td");
+	let cell2 = document.createElement("td");
+	let cell3 = document.createElement("td");
+	let textnode1 = document.createTextNode(col1val);
+	let textnode2 = document.createTextNode(col2val);
+	let textnode3 = document.createTextNode(col3val);
+	cell1.appendChild(textnode1);
+	cell2.appendChild(textnode2);
+	cell3.appendChild(textnode3);
+	row.appendChild(cell1);
+	row.appendChild(cell2);
+	row.appendChild(cell3);
+	tableBody.appendChild(row);
 }
 
 function gotoProfile() {
-	window.location = "main.html"
+	window.location = "../../main.html"
 }
 
 window.addEventListener('load', function() {

@@ -32,8 +32,6 @@
         position: absolute;
         width: 100%;
         z-index: 1001;
-
-        
     }
 
 
@@ -45,7 +43,6 @@
 
     #sidebar > ul > li > a > span {
         line-height: 35px;
-        
     }
 
     #sidebar > ul > li {
@@ -56,7 +53,6 @@
         line-height:35px;
         padding: 0 10px;
         text-align: left;
-        
     }
     #sidebar > ul > li > a i{
         /*display: none !important;*/
@@ -65,7 +61,6 @@
     #sidebar ul > li > a .arrow, #sidebar > ul > li > a .arrow.open {
         margin-right: 10px;
         margin-top: 15px;
-        
     }
 
     #sidebar ul > li.active > a .arrow, #sidebar ul > li > a:hover .arrow, #sidebar ul > li > a:focus .arrow,
@@ -80,7 +75,7 @@
         background: transparent !important ;
     }
     #sidebar > ul > li > ul.sub > li > a:hover {
-
+        
     }
 
 
@@ -103,7 +98,6 @@
         border-bottom: 15px solid #282e36;
         border-left: 15px solid transparent;
         border-right: 15px solid transparent;
-
     }
 
 
@@ -295,3 +289,7 @@
     }
 
 }
+
+
+
+

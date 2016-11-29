@@ -1,4 +1,5 @@
-angular.module("StudyWitMe")
+angular.module("StudyWitMe", ['firebase', 'ngRoute'])
+    .constant("FB_URL", 'https://cmpt106.firebaseio.com/')
     .controller("ConversationController", function ($scope, $firebase, shareConversation, FB_URL) {
         $scope.dbSession = $firebase(new Firebase(FB_URL + "sessions"));
         $scope.dbConvers = $firebase(new Firebase(FB_URL + "conversations"));

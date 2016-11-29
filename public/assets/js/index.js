@@ -17,7 +17,7 @@ function initApp() {
             setupView()
 		} else {
 			console.log("signed out")
-			window.location = 'login.html'
+			window.location = '../../login.html'
 		}
 	})
 
@@ -27,6 +27,9 @@ function initApp() {
 	document.getElementById('pending_sessions_btn').addEventListener('click', gotoPendingSessionsPage, false);
 	document.getElementById('joined_sessions_btn').addEventListener('click', gotoJoinedSessionsPage, false);
 	document.getElementById('hosting_sessions_btn').addEventListener('click', gotoHostingSessionsPage, false);
+	document.getElementById('edit_profile_btn').addEventListener('click', gotoEditProfilePage, false);
+	document.getElementById('edit_password_btn').addEventListener('click', gotoEditPasswordPage, false);
+
 }
 
 function setupView() {
@@ -48,6 +51,7 @@ function setupView() {
 
 			imageView.src = (dict["profile_image_url"] == "") ? "DEFAULT_PROFILE_IMAGE.png" : dict["profile_image_url"]
 			nameView.textContent = dict["name"]
+
 			majorView.textContent = dict["major"]
 			yearView.textContent = dict["school_year"]
 			emailView.innerHTML = dict["email"]
@@ -67,11 +71,17 @@ function signOutUser() {
 }
 
 function gotoDiscoverSessionsPage() {
-	window.location = "viewSessions.html"
+	window.location = "../../viewSessions.html"
 }
 
+function gotoEditProfilePage() {
+	window.location = "../../editProfile.html"
+}
+function gotoEditPasswordPage() {
+	window.location = "../../editPassword.html"
+}
 function gotoCreateSessionPage() {
-	window.location = "createSession.html"
+	window.location = "../../createSession.html"
 }
 
 function gotoPendingSessionsPage() {
@@ -80,11 +90,11 @@ function gotoPendingSessionsPage() {
 }
 
 function gotoJoinedSessionsPage() {
-	window.location = "joinedSessions.html"
+	window.location = "../../joinedSessions.html"
 }
 
 function gotoHostingSessionsPage() {
-	window.location = "hostingSessions.html"
+	window.location = "../../hostingSessions.html"
 }
 
 window.addEventListener('load', function() {

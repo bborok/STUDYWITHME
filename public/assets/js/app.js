@@ -13,7 +13,7 @@ function initApp() {
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
 			console.log("user: " + user.uid + " isAnonymous: " + user.isAnonymous)
-            window.location = 'main.html'
+            window.location = '../../main.html'
 		} else {
 			console.log("signed out")
 		}
@@ -59,7 +59,7 @@ function signOutUser() {
 }
 
 function createAccount(e) {
-    window.location = "createAccount.html"
+    window.location = "../../createAccount.html"
 }
 
 // window.addEventListener('load', function() {
