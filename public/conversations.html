@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="StudyWitMe">
+<html lang="en" ng-app="StudyWitMe" ng-clock>
 
 <head>
     <meta charset="UTF-8">
     <title>Studywitme</title>
 
     <!--Code for conversation functionality-->
+
     <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-route.min.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
-    <script src="https://cdn.firebase.com/js/simple-login/1.6.4/firebase-simple-login.js"></script>
     <script type="text/javascript" src="controllers/conversationController.js"></script>
 
     <link rel = "stylesheet" href = "assets/css/indexStyle.css">
@@ -141,13 +141,15 @@
             <div class="row">
                 <div class="col-lg-9 main-chart">
 
-                  <div ng-controller="ConversationController">
+                    <div ng-controller="ConversationController">
+                  <div ng-hide="displayChat" >
 
                       <ul ng-hide="displayChat" id="conversations">
                           <lable ng-hide="sessions.length">Currently, you are not a member of any Session</lable>
                           <li ng-repeat="session in sessions">
                               <div id="block">
-                              <a ng-click="openChat(session.key)" href="#chat">
+                                  <!--<a ng-click="openChat(session.key)" href="#chat">-->
+                                  <a ng-click="openChat(session.key)">
                                   {{session.courseCode}}
                               </a>
                               </div>
@@ -156,13 +158,44 @@
 
                   </div>
 
+                    <div ng-show="displayChat">
+
+                        <div id="container2">
+                            <ol id="conversations2">
+                                <div id="messages">
+                                    <lable ng-hide="messagesExist">No Messages to Display</lable>
+                                    <li ng-repeat="message in messages">
+
+                                        <div id="bubble">
+                                            <div id="bubble-alt"> {{message.owner}}</div>
+                                            {{message.text}}
+                                            <br>
+                                            {{message.date}}
+
+                                        </div>
+                                    </li>
+                                </div>
+
+                            </ol>
+
+
+                            <div id="chatbox"></div>
+
+                        </div>
+
+                        <div id="formbox">
+                            <form id="message-form">
+                                <input id="messageBox" placeholder="Enter your Message..." ng-keypress="sendMessage($event)" ng-model="message"/>
+                            </form>
+                        </div>
+                    </div>
+</div>
                 </div>
               </div>
             </section>
 </section>
 </section>
 
-    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
     <script type="text/javascript" src="assets/js/index.js"></script>
 
