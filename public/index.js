@@ -29,6 +29,10 @@ function initApp() {
 	document.getElementById('hosting_sessions_btn').addEventListener('click', gotoHostingSessionsPage, false);
 	document.getElementById('edit_profile_btn').addEventListener('click', gotoEditProfilePage, false);
 	document.getElementById('edit_password_btn').addEventListener('click', gotoEditPasswordPage, false);
+	document.getElementById('index2_btn').addEventListener('click', gotoIndex2, false);
+	document.getElementById('index3_btn').addEventListener('click', gotoIndex3, false);
+
+
 
 }
 
@@ -72,6 +76,22 @@ function signOutUser() {
 
 function gotoDiscoverSessionsPage() {
 	window.location = "viewSessions.html"
+}
+
+function gotoIndex2() {
+	window.location = "index2.html"
+}
+function gotoIndex3() {
+	window.location = "index3.html"
+}
+function gotoIndex4() {
+	window.location = "index4.html"
+}
+function gotoIndex5() {
+	window.location = "index5.html"
+}
+function gotoIndex6() {
+	window.location = "index6.html"
 }
 
 function gotoEditProfilePage() {
