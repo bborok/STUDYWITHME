@@ -1,7 +1,7 @@
 const USER_ID = "Somebody";
 
 angular.module("StudyWitMe", ['firebase', 'ngRoute'])
-    .constant("FB_URL", 'https://cmpt106.firebaseio.com/')
+    .constant("FB_URL", 'https://studywitme-f268e.firebaseio.com/')
     .factory('shareConversation', function () {
         return {id: 'DEFAULT'};
     })
@@ -17,17 +17,13 @@ angular.module("StudyWitMe", ['firebase', 'ngRoute'])
 
         //Init Session and Conversation
         $scope.dbSession.$on('value', function () {
+            alert("hello");
             var meeting = $scope.dbSession.$getIndex();
             for (var i = 0; i < meeting.length; i++) {
+                alert(meeting[i]);
                 $scope.sessions.push({
                     key: meeting[i],
-                    owner: $scope.dbSession[meeting[i].owner],
-                    members: $scope.dbSession[meeting[i].members],
-                    courseCode: $scope.dbSession[meeting[i]].courseCode,
-                    location: $scope.dbSession[meeting[i]].location,
-                    title: $scope.dbSession[meeting[i]].title,
-                    limit: $scope.dbSession[meeting[i]].limitNum,
-                    description: $scope.dbSession[meeting[i]].description
+                    courseCode: $scope.dbSession[meeting[i].metadata.course],
                 });
             }
 

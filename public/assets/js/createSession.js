@@ -120,27 +120,33 @@ function createSession() {
 	return;
     }
 
-    let session = {
-	    campus: campus,
-	    course: course,
-	    description: description,
-	    end_date: endTimestamp,
-	    exact_location: exactLocation,
-	    host_id: user.uid,
-	    max_people: maxGuests,
-	    start_date: startTimestamp
-    };
+	var newSessionKey = firebase.database().ref().child('sessions').push().key;
+	var newConversationKey = firebase.database().ref().child('conversations').push().key;
 
-    let newSessionKey = firebase.database().ref().child('sessions').push().key;
+	var conversationDatabase = {};
+	conversationDatabase["/conversations/" + newConversationKey + "/sessionId"] = newSessionKey;
+	firebase.database().ref().update(conversationDatabase);
 
-    var fanoutObject = {}
-    fanoutObject['/users/'+user.uid+'/hosting_sessions/'+newSessionKey] = true;
-    fanoutObject['/sessions/'+newSessionKey+'/metadata'] = session;
+	let session = {
+		conversationId: newConversationKey,
+		campus: campus,
+		course: course,
+		description: description,
+		end_date: endTimestamp,
+		exact_location: exactLocation,
+		host_id: user.uid,
+		max_people: maxGuests,
+		start_date: startTimestamp
+	};
 
-    // console.log(fanoutObject)
+	var fanoutObject = {}
+	fanoutObject['/users/' + user.uid + '/hosting_sessions/' + newSessionKey] = true;
+	fanoutObject['/sessions/' + newSessionKey + "/conversationId"] = newConversationKey;
+	fanoutObject['/sessions/' + newSessionKey + '/metadata'] = session;
 
-    let updatePromise = firebase.database().ref().update(fanoutObject);
+	// console.log(fanoutObject)
 
+	let updatePromise = firebase.database().ref().update(fanoutObject);
     updatePromise.then(function() {
 	console.log("session created!");
 	window.location = '../../main.html';
