@@ -271,7 +271,9 @@ function timestampToReadableTime(timestamp) {
 	let arr1 = str.split(' ') // like ["9:42:00", "PM"]
 	let arr2 = arr1[0].split(':') // like ["9", "42", "00"]
 	// console.log(arr1, arr2)
-	return arr2[0]+':'+arr2[1]+' '+arr1[1]
+	var ampm = (date.getHours() >= 12) ? "PM" : "AM";
+
+	return arr2[0]+':'+arr2[1]+' '+ampm
 }
 
 function hourlyDurationFromTimestamps(start_timestamp, end_timestamp) {
