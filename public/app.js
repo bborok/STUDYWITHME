@@ -13,7 +13,7 @@ function initApp() {
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
 			console.log("user: " + user.uid + " isAnonymous: " + user.isAnonymous)
-            window.location = 'main.html'
+            window.location = 'index.html'
 		} else {
 			console.log("signed out")
 
@@ -23,7 +23,7 @@ function initApp() {
 	document.getElementById('signin-btn').addEventListener('click', signInWithEmailPassword, false);
   document.getElementById('signout-btn').addEventListener('click', signOutUser, false);
   document.getElementById('createAcct-btn').addEventListener('click', createAccount, false);
-	
+
 }
 
 // handles anonymous signin

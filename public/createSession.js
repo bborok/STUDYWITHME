@@ -143,7 +143,7 @@ function createSession() {
 
     updatePromise.then(function() {
 	console.log("session created!");
-	window.location = 'main.html';
+	window.location = 'viewSessions.html';
     }, function(error) {
 	console.log(error);
     })
