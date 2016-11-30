@@ -249,6 +249,7 @@ function declineSession(sessionObj) {
 
 function editSession() {
 	console.log("@todo: operations to edit session")
+	window.location = "editSession.html"
 }
 
 function timestampToReadableDate(timestamp) {
