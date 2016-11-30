@@ -193,9 +193,11 @@ function getDateStringFromTimestamp(timestamp) {
   let str = date.toLocaleTimeString() // like "9:42:00 PM"
 	let arr1 = str.split(' ') // like ["9:42:00", "PM"]
 	let arr2 = arr1[0].split(':') // like ["9", "42", "00"]
-	// console.log(arr1, arr2)
+	console.log(str)
 
-  let dateStr = days[date.getDay()] + " " + arr2[0]+ ":" + arr2[1] + " " + arr1[1]
+  var ampm = (date.getHours() >= 12) ? "PM" : "AM";
+
+  let dateStr = days[date.getDay()] + " " + arr2[0]+ ":" + arr2[1] + " " + ampm
 
 	return dateStr
 }

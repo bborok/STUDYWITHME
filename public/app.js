@@ -16,12 +16,14 @@ function initApp() {
             window.location = 'main.html'
 		} else {
 			console.log("signed out")
+
 		}
 	})
 
 	document.getElementById('signin-btn').addEventListener('click', signInWithEmailPassword, false);
   document.getElementById('signout-btn').addEventListener('click', signOutUser, false);
   document.getElementById('createAcct-btn').addEventListener('click', createAccount, false);
+	
 }
 
 // handles anonymous signin

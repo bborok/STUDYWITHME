@@ -27,7 +27,7 @@
         'signInOptions': [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          firebase.auth.FacebookAuthProvider.PROVIDER_ID
+          // firebase.auth.FacebookAuthProvider.PROVIDER_ID
         ],
         // Terms of service url.
         'tosUrl': '<your-tos-url>',
@@ -101,13 +101,13 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(255,255,255,0.5);
+            background-color: rgba(255,255,255,0);
         }
         .centervh {
             position: absolute;
             left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%)
+            top: 15%;
+            transform: translate(-50%, 0%)
         }
     </style>
 </head>
@@ -129,7 +129,7 @@
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><a class = "logout" href = "login.html">Login</a>
-                      <li><button id="sign-out" class = "logout" onclick = "refresh()">Sign Out</button></li>
+                      <li><button id="signout_out" class = "logout">Sign Out</button></li>
                       <!-- <a class="logout" href="xlogin.html">Logout</a> -->
                     </li>
             	</ul>
